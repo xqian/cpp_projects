@@ -75,7 +75,7 @@ mk.appvar:
 	export temp_var=$$PWD; cd ../; pwd | sed '1s/.*\///' | sed '1s/^/ APP :=/'  > $$temp_var/mk.appvar;
 
 clean:
-	rm $(OBJ_FILES) $(DEP_FILES) $(APP) mk.appvar mk.source_list mk.cpp_list $(SOURCE_DEPEND_FRAG)
+	rm $(OBJ_FILES) $(DEP_FILES) $(APP) $(APP).exe mk.appvar mk.source_list mk.cpp_list $(SOURCE_DEPEND_FRAG)
 
 flush: 
 	make mk.source_list 
