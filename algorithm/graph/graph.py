@@ -27,15 +27,15 @@ class Node():
             return self.connectedTo[other]
         return None
 
+#This is demo an implementation for non-Digraph
 class Graph():
     def __init__(self):
+        # How about []? make it an array of list: TODO 
         self.nodeList = {}
-        self.num = 0
     
     def addNode(self, key):
         node = Node(key)
         self.nodeList[key] = node
-        self.num += 1
         return node
     
     def addEdge(self, f, to,weight=0):
@@ -46,6 +46,7 @@ class Graph():
 
         ### Be careful !!! Add Node as key, not int!    
         self.nodeList[f].addNeighbor(self.getNode(to),weight)
+        #self.nodeList[to].addNeighbor(self.getNode(f),weight)
         
     def getNode(self,key):
         if key in self.nodeList:
@@ -66,7 +67,7 @@ class Graph():
         return "Graph node: {}".format(str([x.id for x in self]))
 
     def visit(self,n):
-        print n.getId()
+        print "visiting:", n.getId()
 
     def DFS(self, n, visited):
         if not n:
@@ -84,6 +85,8 @@ class Graph():
 
         while len(stack):
             v = stack.pop()
+            if (v in visited):
+                continue
             #mark it as visited
             self.visit(v)
             visited.append(v)
@@ -124,7 +127,70 @@ class Graph():
         for v in self:
             if v not in visited:
                 print "Find network:"
-                self.BFS(v,visited) 
+                self.BFS(v,visited)
+    
+def findPath(g, start, end, path=[]):
+    path = path + [start]
+    
+    if start == end:
+        return path
+        
+    if start == None:
+        return None
+        
+    for v in g.getNode(start).getConnections():
+        # avoid cycle
+        if v in path:
+            continue
+            
+        newPath = findPath(g,v.getId(), end, path)
+        if newPath:
+            return newPath
+            
+    return None
+
+def findAllPaths(g, start, end, path=[]):
+    path = path + [start]
+
+    if start == end:
+        return [path]
+
+    if start == None:
+        return []
+
+    paths = []
+    for v in g.getNode(start).getConnections():
+        # avoid cycle
+        if v in path:
+            continue
+
+        newPaths = findAllPaths(g,v.getId(), end, path)
+        for newPath in newPaths:
+            paths.append(newPath)
+
+    return paths
+
+def findShortestPath(g, start, end, path=[]):
+    path = path + [start]
+
+    if start == end:
+        return path
+
+    if start == None:
+        return []
+
+    shortestPath = None
+    for v in g.getNode(start).getConnections():
+        # avoid cycle
+        if v in path:
+            continue
+
+        newPath = findShortestPath(g,v.getId(), end, path)
+        if newPath:
+            if not shortestPath or len(newPath) < len(shortestPath):
+                shortestPath = newPath
+
+    return shortestPath
 
 def UnitTest():
     g = Graph()
@@ -149,8 +215,40 @@ def UnitTest():
 
     g.travelGraphDFS()
     #g.travelGraphBFS()
-            
-UnitTest() 
+    
+    #Find path 
+    path = findPath(g,0,3)
+    print '0-3 path:',path
+
+def testFindAllPaths():    
+    '''
+    graph = {'A': ['B', 'C'],
+                 'B': ['C', 'D'],
+                 'C': ['D'],
+                 'D': ['C'],
+                 'E': ['F'],
+                 'F': ['C']}
+    '''
+    g = Graph()
+    for i in ['A','B','C','D','E','F']:
+        g.addNode(i)
+    
+    g.addEdge('A','B')
+    g.addEdge('A','C')
+    g.addEdge('B','C')
+    g.addEdge('B','D')
+    g.addEdge('C','D')
+    g.addEdge('D','C')
+    g.addEdge('E','F')
+    g.addEdge('F','C')
+   
+    #Find all paths
+    print 'A->D all paths:', findAllPaths(g,'A','D')
+    
+    print findShortestPath(g, 'A', 'D')
+
+testFindAllPaths()            
+#UnitTest() 
     
         
         
