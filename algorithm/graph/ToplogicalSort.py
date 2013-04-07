@@ -1,18 +1,22 @@
-import Digraph
+from Digraph import *
 
 class ToplogicalSort(Digraph):
 	def __init__(self):
 		Digraph.__init__(self)
-	
+		
 	def ToplogicalSort(self):
 	    visited=[]
+	    self.reverseStack = []
+        
 	    for v in self:
 	        if v not in visited:
 	            print "Find network:"
-	            self.reverseStack = []
-	            self.DFS(v,visited) 
-	            print 'ToplogicalSort',self.reverseStack
-
+	            self.DFS(v,visited)
+	             
+	    self.reverseStack.reverse()
+	    print 'ToplogicalSort',self.reverseStack
+        
+        
 	def DFS(self, v, visited):
 	    if not v:
 	        return
@@ -22,7 +26,8 @@ class ToplogicalSort(Digraph):
 	    for w in v.getConnections():
 	        if w not in visited:
 	            found = self.DFS(w,visited)
-	    self.reverseStack.append(w.getId())        
+	    print v.getId()
+	    self.reverseStack.append(v.getId())        
 	    return 
 
 def DigraphUnitTest():
@@ -43,4 +48,5 @@ def DigraphUnitTest():
     g.addEdge(1,4,1)
 
     g.ToplogicalSort()
+
 DigraphUnitTest()
