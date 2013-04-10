@@ -1,0 +1,8 @@
+git hub ssh key setting:
+=======================
+[xqian@Xin-Qians-MacBook-Pro cpp-project]$ cat ~/.ssh/config 
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile <path_to>id_rsa
+
