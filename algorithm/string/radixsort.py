@@ -24,8 +24,8 @@ class RadixSort():
 
 		# aux variable
 		for i in range(0,N):
+			self.aux[count[self.a[i]]] = self.a[i]
 			count[self.a[i]] += 1
-			self.aux[count[self.a[i]]] = self.a[i]   #??
 		print 'aux= {}'.format(self.aux)
 
 		#copy back
