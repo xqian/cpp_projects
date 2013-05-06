@@ -4,37 +4,40 @@ class LSDSort():
 	def __init__(self, a=[]):
 		self.a = a
 		self.R = 256  #ascii
-		self.aux = [0]*len(a)
+		self.aux = [0]*(len(a))
 
 	def sort(self):
 		N = len(self.a)
 		
 		print 'self.a: {}'.format(self.a)
+		length = len(self.a[0])
+		print 'length=',length
 
-		for d in range(len(self.a[0])-1,-1,-1):
-			count = [0] * (self.R + 1)
+		for d in range(length-1,-1,-1):
+			bucket = [0] * (self.R + 1)
+			print bucket
 
 			#compute the times each character appear
 			for i in range(0,N):
 				lsd = self.a[i][d]
-				count[ord(lsd)+1]+=1
+				bucket[ord(lsd)]+=1
 
-			print 'first count:{}'.format(count)
+			print 'first bucket:{}'.format(bucket)
 			#cumulative to compute the actual position
 			for i in range(0,self.R):
-				count[i+1] += count[i]
+				bucket[i+1] += bucket[i]
 
-			print 'after cumlative:{}'.format(count)
+			print 'after cumlative:{}'.format(bucket)
 
-			import pdb;pdb.set_trace()
-
+			
 			# aux variable
 			for i in range(0,N):
 				lsd = self.a[i][d]
-				print 'lxb:',count[ord(lsd)], 'N=',N,'i=',i
-				self.aux[count[ord(lsd)]] = self.a[i]
-				count[ord(lsd)] += 1
+				print 'lxb:',bucket[ord(lsd)], 'N=',N,'i=',i
+				self.aux[bucket[ord(lsd)]] = self.a[i]
+				bucket[ord(lsd)] += 1
 			print 'aux= {}'.format(self.aux)
+			import pdb;pdb.set_trace()
 
 			#copy back
 			self.a = self.aux
