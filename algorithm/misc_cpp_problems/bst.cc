@@ -289,19 +289,16 @@ void old_test_cases()
 }
 
 template<typename T>
-void printPerimiter_leftBundary(Node<T>* n, bool begin_print)
+void printPerimiter_leftBundary(Node<T>* n)
 {
   if (n!=NULL)
   {
-    if (begin_print)
-    {
-      if (n->left!=NULL || n->right!=NULL)
-      cout<<n->v<<", ";
-    }
+    if (n->left!=NULL || n->right!=NULL)
+      cout<<n->v<<", "; //not leaf node
     if (n->left!=NULL)
-      printPerimiter_leftBundary(n->left,true);
-    else //left is empty
-      printPerimiter_leftBundary(n->right, begin_print);
+      printPerimiter_leftBundary(n->left);
+    else //left is empty, only right child, still go right
+      printPerimiter_leftBundary(n->right);
   }
 }
 
@@ -320,10 +317,16 @@ void printPerimiter_rightBundary(Node<T>* n, bool begin_print)
 {
   if (n!=NULL)
     {
-      if (n->right!=NULL)
+      if (n->right!=NULL && n->left!=NULL) //split, right boundary begin
         printPerimiter_rightBundary(n->right, true);
       else
-        printPerimiter_rightBundary(n->left, begin_print);
+      {
+        //only one child
+        if (n->right)
+         printPerimiter_rightBundary(n->right, begin_print);
+        else if (n->left)
+          printPerimiter_rightBundary(n->left, begin_print);
+      }
       if (begin_print)
       {
         if (n->left!=NULL || n->right!=NULL)
@@ -337,8 +340,7 @@ template<typename T>
 void printPerimiter(Node<T>* n)
 {
   if (n==NULL) return;
-  cout<<n->v<<", ";
-  printPerimiter_leftBundary(n,false);
+  printPerimiter_leftBundary(n);
   printPerimiter_leaves(n);
   printPerimiter_rightBundary(n,false);
   cout<<endl;
