@@ -298,7 +298,7 @@ void printPerimiter_leftBundary(Node<T>* n)
     if (n->left!=NULL)
       printPerimiter_leftBundary(n->left);
     else //left is empty, only right child, still go right
-      printPerimiter_leftBundary(n->right);
+      printPerimiter_leftBundary(n->right); //JING: better to check if n->right is NULL, i mean, the code is still correct
   }
 }
 
@@ -308,10 +308,12 @@ void printPerimiter_leaves(Node<T>* n)
   if (n==NULL) return;
   if (n->left==NULL && n->right==NULL)
     cout<<n->v<<", ";
-  printPerimiter_leaves(n->left);
+  printPerimiter_leaves(n->left); //JING: better to add else, but that is personal style
   printPerimiter_leaves(n->right);
 }
 
+//JING: I do not understand why this function is so complicated
+//why not just follow the leftBoundary code
 template<typename T>
 void printPerimiter_rightBundary(Node<T>* n, bool begin_print)
 {
