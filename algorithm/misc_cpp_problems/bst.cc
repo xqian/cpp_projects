@@ -58,8 +58,10 @@ public:
 
   static Node<int>* constructTree4()
     {
-      Node<int>* I5=new Node<int>(5);
-      Node<int>* I10=new Node<int>(10, I5, NULL);
+      Node<int>* I11=new Node<int>(11);
+      Node<int>* I15=new Node<int>(15);
+      Node<int>* I12=new Node<int>(12, I11, I15);
+      Node<int>* I10=new Node<int>(10, NULL, I12);
 
       Node<int>* I35=new Node<int>(35);
       Node<int>* I30=new Node<int>(30, NULL, I35);
@@ -69,15 +71,18 @@ public:
       Node<int>* I55=new Node<int>(55);
       Node<int>* I50=new Node<int>(50, NULL, I55);
 
-
-      Node<int>* I70=new Node<int>(70, NULL, NULL);
+      Node<int>* I68=new Node<int>(68);
+      Node<int>* I65=new Node<int>(65, NULL, I68);
+      Node<int>* I70=new Node<int>(70, I65, NULL);
 
       Node<int>* I60=new Node<int>(60, I50, I70);
 
       Node<int>* I40=new Node<int>(40, I20, I60);
 
       Node<int>* I90=new Node<int>(90, I40, NULL);
-      return I90;
+
+      Node<int>* I5=new Node<int>(5, NULL, I90);
+      return I5;
     }
 
   static Node<char>* testCase1()
@@ -297,8 +302,8 @@ void printPerimiter_leftBundary(Node<T>* n)
       cout<<n->v<<", "; //not leaf node
     if (n->left!=NULL)
       printPerimiter_leftBundary(n->left);
-    else //left is empty, only right child, still go right
-      printPerimiter_leftBundary(n->right); //JING: better to check if n->right is NULL, i mean, the code is still correct
+    else if (n->right) //left is empty, only right child, still go right
+      printPerimiter_leftBundary(n->right);
   }
 }
 
@@ -308,12 +313,17 @@ void printPerimiter_leaves(Node<T>* n)
   if (n==NULL) return;
   if (n->left==NULL && n->right==NULL)
     cout<<n->v<<", ";
-  printPerimiter_leaves(n->left); //JING: better to add else, but that is personal style
-  printPerimiter_leaves(n->right);
+  if (n->left)
+    printPerimiter_leaves(n->left);
+  if (n->right)
+    printPerimiter_leaves(n->right);
 }
 
-//JING: I do not understand why this function is so complicated
-//why not just follow the leftBoundary code
+
+/*
+it will go from top to bottom, but if the heads part is always only have one child, then the left boundary should print it out;
+the right boundary should skip it;
+*/
 template<typename T>
 void printPerimiter_rightBundary(Node<T>* n, bool begin_print)
 {
@@ -332,7 +342,7 @@ void printPerimiter_rightBundary(Node<T>* n, bool begin_print)
       if (begin_print)
       {
         if (n->left!=NULL || n->right!=NULL)
-              cout<<n->v<<", ";
+	  cout<<n->v<<", "; //on the right boundary path, begin print, and not a leaf
       }
     }
 }
@@ -368,10 +378,83 @@ void testCase9()
   printPerimiter(p_40);
 }
 
+//Another solution, purelly recursive, and easy to make mistake.
+void printPerimeter_recursive(Node<int> *node, bool isLeft, bool isRight)
+{
+    if(!node)
+    {
+        return;
+    }
+
+    //going on left boundary, or leave node
+    if(isLeft || ( (node->left==NULL) && (node->right==NULL) ) )
+    {
+        cout << node->v << ", ";
+    }
+
+
+    printPerimeter_recursive(node->left, isLeft, (node->right? false: isRight));
+    printPerimeter_recursive(node->right, ((!node->left) ? isLeft:false), isRight);
+#if 0
+    //the following logic can be expressed by above two sentense, but how come peole can write the above directly
+    if (isLeft)
+    {
+      if (node->left)
+      {
+        //if right is there, then left and right slipt, left side is no longer right boundary
+        printPerimeter_recursive(node->left, true, (node->right? false: isRight));
+        //if left is there, going on right, but no long on left boundary
+        printPerimeter_recursive(node->right, false, isRight);
+      }
+      else //left is empty, have to go right, but still on left boundary
+        printPerimeter_recursive(node->right, true, isRight);
+    }
+    else
+    {
+      if (node->right)
+      {
+        //if right is there, left boundary is no longer the boundary
+        printPerimeter_recursive(node->left, false, false);
+      }
+      printPerimeter_recursive(node->right, false, isRight);
+    }
+#endif
+
+    //right boundary, not left, not leave
+    if(isRight && !isLeft && (node->left || node->right))
+    {
+      cout << node->v << ", ";
+    }
+}
+
+void printPerimeter(Node<int> *root)
+{
+    printPerimeter_recursive(root, true, true);
+    cout<<endl;
+    return;
+}
+
+void testCase10()
+{
+  Node<int>* p_40 = TestNode<int>::constructTree4();
+  std::cout << "pre_order recursive:";
+  p_40->pre_order();
+  cout<<endl;
+  printPerimeter(p_40);
+
+  p_40 = TestNode<int>::constructTree3();
+  std::cout << "pre_order recursive:";
+  p_40->pre_order();
+  cout<<endl;
+  printPerimeter(p_40);
+}
+
+
 int main(int argc, char *argv[])
 {
   TestNode<char>::testCase6();
   TestNode<char>::testCase7();
   TestNode<char>::testCase8();
   testCase9();
+  testCase10();
 }
