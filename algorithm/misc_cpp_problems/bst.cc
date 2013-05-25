@@ -300,6 +300,7 @@ void printPerimiter_leftBundary(Node<T>* n)
   {
     if (n->left!=NULL || n->right!=NULL)
       cout<<n->v<<", "; //not leaf node
+
     if (n->left!=NULL)
       printPerimiter_leftBundary(n->left);
     else if (n->right) //left is empty, only right child, still go right
@@ -310,13 +311,17 @@ void printPerimiter_leftBundary(Node<T>* n)
 template<typename T>
 void printPerimiter_leaves(Node<T>* n)
 {
-  if (n==NULL) return;
-  if (n->left==NULL && n->right==NULL)
-    cout<<n->v<<", ";
-  if (n->left)
-    printPerimiter_leaves(n->left);
-  if (n->right)
-    printPerimiter_leaves(n->right);
+  if (n == NULL)
+    return;
+  if (n->left == NULL && n->right == NULL)
+    cout << n->v << ", ";
+  else
+  {
+    if (n->left)
+      printPerimiter_leaves( n->left );
+    if (n->right)
+      printPerimiter_leaves( n->right );
+  }
 }
 
 
