@@ -10,7 +10,7 @@
 #include "bst.h"
 
 using namespace std;
-int debug_level = 1;
+int debug_level = 0;
 
 
 template<typename T>
@@ -60,8 +60,9 @@ public:
     {
       Node<int>* I11=new Node<int>(11);
       Node<int>* I15=new Node<int>(15);
-      Node<int>* I12=new Node<int>(12, I11, I15);
-      Node<int>* I10=new Node<int>(10, NULL, I12);
+      Node<int>* I12=new Node<int>(12, I11, NULL);
+      Node<int>* I13=new Node<int>(13, I12, I15);
+      Node<int>* I10=new Node<int>(10, NULL, I13);
 
       Node<int>* I35=new Node<int>(35);
       Node<int>* I30=new Node<int>(30, NULL, I35);
@@ -398,9 +399,9 @@ void printPerimeter_recursive(Node<int> *node, bool isLeft, bool isRight)
     }
 
 
-    printPerimeter_recursive(node->left, isLeft, (node->right? false: isRight));
-    printPerimeter_recursive(node->right, ((!node->left) ? isLeft:false), isRight);
-#if 0
+//    printPerimeter_recursive(node->left, isLeft, (node->right? false: isRight));
+//    printPerimeter_recursive(node->right, ((!node->left) ? isLeft:false), isRight);
+//#if 0
     //the following logic can be expressed by above two sentense, but how come peole can write the above directly
     if (isLeft)
     {
@@ -423,7 +424,7 @@ void printPerimeter_recursive(Node<int> *node, bool isLeft, bool isRight)
       }
       printPerimeter_recursive(node->right, false, isRight);
     }
-#endif
+//#endif
 
     //right boundary, not left, not leave
     if(isRight && !isLeft && (node->left || node->right))
@@ -454,6 +455,217 @@ void testCase10()
   printPerimeter(p_40);
 }
 
+/*
+ * reconstruct binary search tree from these out put
+ * pre_order recursive:(5,(90(40(20(10,(13(12(11),),(15))),(30,(35))),(60(50,(55)),(70(65,(68)),))),))
+ * pre_order recursive:(40(20(10(5),),(30,(35))),(60(50,(55)),(70,(90))))
+ * */
+class ASTNode : public MyClass
+{
+public:
+};
+
+class TermNode: public ASTNode
+{
+public:
+  //( is -1;
+  //, is -2
+  int value;
+  virtual void output(std::ostream& o) const
+  {
+    o<<"v:"<<value;
+  }
+};
+
+template
+<typename T>
+class TreeNode: public ASTNode
+{
+public:
+  Node<T>* n;
+  virtual void output(std::ostream& o) const
+  {
+    o<<"n:"<<n->v;
+  }
+};
+
+bool isNumber(char c)
+{
+  return (c>='0')&&(c<='9');
+}
+
+
+
+template
+<typename T>
+Node<T>* reconstructNode(string str)
+{
+  vector<ASTNode*> stack;
+  deque<ASTNode*> currentTree;
+  char number_str[64]={0};
+
+  for (string::iterator it=str.begin();it!=str.end();it++)
+    {
+      debug_print("processing:"<<*it<<", stack:"<<stack<<endl);
+      if (*it=='(')
+        {
+          TermNode* term=new TermNode();
+          term->value=-1;
+          stack.push_back(term);
+        }
+      else if (*it==',')
+        {
+        TermNode* term=new TermNode();
+        term->value=-2;
+        stack.push_back(term);
+        }
+      else if (isNumber(*it))
+        {
+          if(    (it+1)!=str.end()
+              && isNumber(*(it+1)) )
+            {
+              continue;
+            }
+          else
+            {
+            string::iterator jt=it;
+            while(isNumber(*jt))
+              {
+              jt--;
+              }
+            jt++;
+            int i=0;
+            while(jt!=it)
+              {
+              number_str[i]=*jt;
+              jt++; i++;
+              }
+            number_str[i++]=*jt;
+            number_str[i]=0;
+            TermNode* term=new TermNode();
+            //only work for int
+            term->value=atoi(number_str);
+            debug_print("number s:"<<number_str<<", n:"<<term->value<<endl);
+            stack.push_back(term);
+            }
+        }
+      else if (*it==')')
+        {
+          bool working_on_current_tree=true;
+          while(working_on_current_tree)
+            {
+            debug_print("working on"<<" stack:"<<stack<<endl);
+            ASTNode* ast=stack.back();stack.pop_back();
+            TermNode* term=dynamic_cast<TermNode*>(ast);
+            debug_do(if (term) debug_print("    term:"<<term<<endl));
+            if (term!=NULL && term->value==-1) //'('
+              {
+              ASTNode* head=currentTree.front();currentTree.pop_front();
+              TermNode* head_term=dynamic_cast<TermNode*>(head);
+              TreeNode<T>* head_tree=dynamic_cast<TreeNode<T>*>(head);
+              Node<T>* newTreeNode=NULL;
+              assert(!(head_term!=NULL&&head_tree!=NULL));
+              debug_print("    head, tree:"<<head_tree<<", term:"<<head_term<<endl);
+              if (head_term!=NULL)
+                {
+                assert(head_term->value>=0);
+                newTreeNode=new Node<T>(head_term->value);
+                }
+              else
+                {
+                newTreeNode = head_tree->n;
+                }
+              assert(newTreeNode);
+              TreeNode<T>* tnode=new TreeNode<T>();
+              tnode->n=newTreeNode;
+              stack.push_back(tnode);
+              bool working_on_left=true;
+              while(currentTree.size()>0)
+              {
+              debug_print("    tree:"<<currentTree<<endl);
+              ASTNode* head = currentTree.front();
+              currentTree.pop_front();
+              TermNode* head_term = dynamic_cast<TermNode*>(head);
+              TreeNode<T>* head_tree = dynamic_cast<TreeNode<T>*>(head);
+              Node<T>* newChildNode = NULL;
+              assert(!(head_term!=NULL&&head_tree!=NULL));
+              debug_print("    head2, tree:"<<head_tree<<", term:"<<head_term<<endl);
+              if (head_term != NULL && head_term->value == -2)
+                {
+                debug_print("   counter ,"<<endl);
+                assert(working_on_left);
+                working_on_left = false;
+                }
+              else
+                {
+                if (head_term != NULL && head_term->value >= 0)
+                  {
+                  assert(0);
+                  newChildNode = new Node<T>((head_term->value));
+                  }
+                else if (head_tree)
+                  {
+                  newChildNode = head_tree->n;
+                  }
+
+                if (working_on_left)
+                  {
+                  newTreeNode->left = newChildNode;
+                  }
+                else
+                  {
+                  newTreeNode->right = newChildNode;
+                  }
+                }
+              }
+              working_on_current_tree=false;
+              }
+            else
+              {
+              debug_print("    push to tree front:"<<ast<<endl);
+              //push every in the stack into currentTree queue, until hit '('
+              currentTree.push_front(ast);
+              }
+            }
+        }
+      else
+        {
+        assert(0);
+        }
+    }
+
+  return dynamic_cast<TreeNode<T>*>(stack.back())->n;
+}
+
+void testCase11()
+{
+  Node<int>* p = NULL;
+  p = reconstructNode<int>("(5)");
+  std::cout << "pre_order recursive:";
+  p->pre_order();
+  cout<<endl;
+
+  p = reconstructNode<int>("(5(3),)");
+  std::cout << "pre_order recursive:";
+  p->pre_order();
+  cout<<endl;
+
+  p = reconstructNode<int>("(5,(6))");
+  std::cout << "pre_order recursive:";
+  p->pre_order();
+  cout<<endl;
+
+  p = reconstructNode<int>("(5(3),(6))");
+  std::cout << "pre_order recursive:";
+  p->pre_order();
+  cout<<endl;
+
+  p = reconstructNode<int>("(5,(90(40(20(10,(13(12(11),),(15))),(30,(35))),(60(50,(55)),(70(65,(68)),))),))");
+  std::cout << "pre_order recursive:";
+  p->pre_order();
+  cout<<endl;
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -462,4 +674,5 @@ int main(int argc, char *argv[])
   TestNode<char>::testCase8();
   testCase9();
   testCase10();
+  testCase11();
 }
