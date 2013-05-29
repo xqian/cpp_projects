@@ -139,7 +139,7 @@ class RangeSet
       }
 
 
-      //use binary search to first need to compare, and the last need to compare
+      //use binary search to find first need to compare, and the last need to compare
       for(list<MySet>::iterator it=set_list.begin();it!=set_list.end();it++)
       {
         debug_print("it:"<<*it<<", n:"<<newset<<endl);
