@@ -40,7 +40,7 @@ namespace num
 extern int debug_level;
 #define debug_print(...) do {if (debug_level) std::cerr<<__func__<<"("<<__LINE__<<"): "<<__VA_ARGS__;} while(0)
 //#define debug_print(...)
-#define debug_do(...) do {__VA_ARGS__;} while(0)
+#define debug_do(...) do { if (debug_level) {__VA_ARGS__;};} while(0)
 
 namespace std
 {
