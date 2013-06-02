@@ -24,7 +24,6 @@
 #include <math.h>
 #include <utility>
 #include <list>
-#include <assert.h>
 #include <limits>
 #include <tr1/unordered_set>
 
