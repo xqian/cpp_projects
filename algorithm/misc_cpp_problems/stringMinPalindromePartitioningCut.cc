@@ -246,10 +246,15 @@ public:
         return numSeg[0]-1;
     }
 
+    //palLens[start_point][length of p]
+    //numSeg[start_point], numSeg of [start_point,end_of_string]
+    //cur from 0 until increase to cur + palLens[cur][i]
+    //smarter on using the known palindrome to step forward
     void calSeg(int totalLen, vector<int> & numSeg, int cur, const vector<vector<int> > & palLens) {
         if ( numSeg[cur] != 0) return;
         int t = INT_MAX;
         for(int i=0; i < palLens[cur].size(); ++i) {
+            debug_print("cur:"<<cur<<endl);
             if ( cur + palLens[cur][i] < totalLen ) {
                 calSeg(totalLen, numSeg, cur + palLens[cur][i], palLens);
                 t = min(t, 1+numSeg[cur+palLens[cur][i]]);
@@ -613,7 +618,10 @@ public:
           }
           else
           {
-            result=minCut_rec( s ,  i-1 )+range_end-i+1;
+            if (range_end-i+1<min_cut)
+              {
+                result=minCut_rec( s ,  i-1 )+range_end-i+1;
+              }
             debug_print("result:"<<result<<", i:"<<i<<endl);
           }
           debug_print("result:"<<result<<", i:"<<i<<endl);
@@ -654,26 +662,28 @@ void test_s1( Solution& s1)
   time_t t1;
   time(&t1);
   time_t now;
-  for(int i=0;i<1;i++)
+  for(int i=0;i<5;i++)
   {
-    //cout<<"===aab"<<endl;
+    debug_print("===aab"<<endl);
     assert(s1.minCut("aab")==1);
-    //cout<<"===ababab"<<endl;
+    debug_print("===ababab"<<endl);
     assert(s1.minCut("ababab")==1);
-    //cout<<"===leet"<<endl;
+    debug_print("===leet"<<endl);
     assert(s1.minCut("leet")==2);
     string s="apjesgpsxoeiokmqmfgvjslcjukbqxpsobyhjpbgdfruqdkeiszrlmtwgfxyfostpqczidfljwfbbrflkgdvtytbgqalguewnhvvmcgxboycffopmtmhtfizxkmeftcucxpobxmelmjtuzigsxnncxpaibgpuijwhankxbplpyejxmrrjgeoevqozwdtgospohznkoyzocjlracchjqnggbfeebmuvbicbvmpuleywrpzwsihivnrwtxcukwplgtobhgxukwrdlszfaiqxwjvrgxnsveedxseeyeykarqnjrtlaliyudpacctzizcftjlunlgnfwcqqxcqikocqffsjyurzwysfjmswvhbrmshjuzsgpwyubtfbnwajuvrfhlccvfwhxfqthkcwhatktymgxostjlztwdxritygbrbibdgkezvzajizxasjnrcjwzdfvdnwwqeyumkamhzoqhnqjfzwzbixclcxqrtniznemxeahfozp";
     string s2="adabdcaebdcebdcacaaaadbbcadabcbeabaadcbcaaddebdbddcbdacdbbaedbdaaecabdceddccbdeeddccdaabbabbdedaaabcdadbdabeacbeadbaddcbaacdbabcccbaceedbcccedbeecbccaecadccbdbdccbcbaacccbddcccbaedbacdbcaccdcaadcbaebebcceabbdcdeaabdbabadeaaaaedbdbcebcbddebccacacddebecabccbbdcbecbaeedcdacdcbdbebbacddddaabaedabbaaabaddcdaadcccdeebcabacdadbaacdccbeceddeebbbdbaaaaabaeecccaebdeabddacbedededebdebabdbcbdcbadbeeceecdcdbbdcbdbeeebcdcabdeeacabdeaedebbcaacdadaecbccbededceceabdcabdeabbcdecdedadcaebaababeedcaacdbdacbccdbcece";
     string s3="apjesgpsxoeiokmqmfgvjslcjukbqxpsobyhjpbgdfruqdkeiszrlmtwgfxyfostpqczidfljwfbbrflkgdvtytbgqalguewnhvvmcgxboycffopmtmhtfizxkmeftcucxpobxmelmjtuzigsxnncxpaibgpuijwhankxbplpyejxmrrjgeoevqozwdtgospohznkoyzocjlracchjqnggbfeebmuvbicbvmpuleywrpzwsihivnrwtxcukwplgtobhgxukwrdlszfaiqxwjvrgxnsveedxseeyeykarqnjrtlaliyudpacctzizcftjlunlgnfwcqqxcqikocqffsjyurzwysfjmswvhbrmshjuzsgpwyubtfbnwajuvrfhlccvfwhxfqthkcwhatktymgxostjlztwdxritygbrbibdgkezvzajizxasjnrcjwzdfvdnwwqeyumkamhzoqhnqjfzwzbixclcxqrtniznemxeahfozp";
     string s4="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+#if 1
     assert(s1.minCut(s)==452);
     assert(s1.minCut(s2)==273);
     assert(s1.minCut(s3)==452);
-    cout<<s1.minCut(s4)<<endl;
+    assert(s1.minCut(s4)==1);
+#endif
   }
   cout<<(clock()-t)<<", cli per second, s1:"<<CLOCKS_PER_SEC<<endl;
-  time(&now);
-  cout<<"t:"<<difftime(now,t1)<<""<<endl;
+  //time(&now);
+  //cout<<"t:"<<difftime(now,t1)<<""<<endl;
 }
 
 int main()
@@ -685,10 +695,10 @@ int main()
   Solution5 s5;
   Solution6 s6;
 
-  test_s1(s1);
-  test_s1(s2);
+  //test_s1(s1);
+  //test_s1(s2);
   test_s1(s3);
-  test_s1(s4);
-  test_s1(s5);
+  //test_s1(s4);
+  //test_s1(s5);
   test_s1(s6);
 }
