@@ -618,10 +618,13 @@ public:
           }
           else
           {
+            //no need for this, the final solution have to be all palindrome
+            #if 0
             if (range_end-i+1<min_cut)
               {
                 result=minCut_rec( s ,  i-1 )+range_end-i+1;
               }
+            #endif
             debug_print("result:"<<result<<", i:"<<i<<endl);
           }
           debug_print("result:"<<result<<", i:"<<i<<endl);
