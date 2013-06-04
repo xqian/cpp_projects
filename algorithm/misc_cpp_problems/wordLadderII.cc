@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <string>
 #include <vector>
+#include <list>
 #include <time.h>
 #include <limits.h>
 #include <iterator>
@@ -86,7 +87,6 @@ public:
       }
       add_string(end);
 
-      /*
       debug_do(copy(strs.begin(),strs.end(),ostream_iterator<string>(cout,", ")));
       debug_do(cout<<endl);
       debug_do(
@@ -98,7 +98,6 @@ public:
           }
           );
       debug_do(cout<<endl);
-      */
 
       deque<int> current_layer;
       current_layer.push_back(0);
@@ -117,7 +116,7 @@ public:
             {
               current_layer.push_back(links[current_layer[i]][j]);
               back_trace.insert(pair<size_t,size_t>(links[current_layer[i]][j],current_layer[i]));
-              //debug_print("from "<<current_layer[i]<<", to:"<<links[current_layer[i]][j]<<endl);
+              debug_print("from "<<current_layer[i]<<", to:"<<links[current_layer[i]][j]<<endl);
               if (links[current_layer[i]][j]==dict_size-1)
                 not_found=false;
               else
@@ -134,19 +133,18 @@ public:
 
       vector<vector<string> > result;
 
-      vector<vector<int> > result_index;
+      list<vector<int> > result_index;
       result_index.push_back(vector<int>());
       result_index.back().push_back(dict_size-1);
       bool reach_start=false;
       do
       {
-        size_t result_index_size=result_index.size();
-        for(size_t i=0;i<result_index_size;i++)
+        for(list<vector<int> >::iterator l_it=result_index.begin();
+            l_it!=result_index.end();l_it++)
         {
-        vector<vector<int> >::iterator l_it=result_index.begin()+i;
-        //debug_print("working on result_index:");
-        //debug_do(copy(l_it->begin(),l_it->end(),ostream_iterator<int>(cout,", ")));
-        //debug_do(cout<<endl);
+        debug_print("working on result_index:");
+        debug_do(copy(l_it->begin(),l_it->end(),ostream_iterator<int>(cout,", ")));
+        debug_do(cout<<endl);
         pair< unordered_multimap<size_t, size_t>::iterator, unordered_multimap<size_t, size_t>::iterator> all_next
                                                                 = back_trace.equal_range(l_it->back());
         unordered_multimap<size_t, size_t>::iterator next_it=all_next.first;
@@ -155,20 +153,20 @@ public:
         next_it++;
         for(; next_it!=all_next.second;next_it++)
           {
-          result_index.push_back(vector<int>(l_it->begin(),l_it->end()-1));
-          result_index.back().push_back(next_it->second);
+          list<vector<int> >::iterator added_vector=result_index.insert(l_it,vector<int>(l_it->begin(),l_it->end()-1));
+          added_vector->push_back(next_it->second);
           }
         }
       }
       while(!reach_start);
       //result[0].push_back(strs[0]);
 
-      //debug_do(copy(result_index.front().begin(),result_index.front().end(),ostream_iterator<int>(cout,", ")));
-      //debug_do(cout<<endl);
-      //debug_do(copy(result_index.back().begin(),result_index.back().end(),ostream_iterator<int>(cout,", ")));
-      //debug_do(cout<<endl);
+      debug_do(copy(result_index.front().begin(),result_index.front().end(),ostream_iterator<int>(cout,", ")));
+      debug_do(cout<<endl);
+      debug_do(copy(result_index.back().begin(),result_index.back().end(),ostream_iterator<int>(cout,", ")));
+      debug_do(cout<<endl);
 
-      for(vector<vector<int> >::iterator l_it=result_index.begin();
+      for(list<vector<int> >::iterator l_it=result_index.begin();
                   l_it!=result_index.end();l_it++)
       {
         result.push_back(vector<string>());
@@ -179,10 +177,10 @@ public:
         }
       }
 
-      //debug_do(copy(result.front().begin(),result.front().end(),ostream_iterator<string>(cout,", ")));
-      //debug_do(cout<<endl);
-      //debug_do(copy(result.back().begin(),result.back().end(),ostream_iterator<string>(cout,", ")));
-      //debug_do(cout<<endl);
+      debug_do(copy(result.front().begin(),result.front().end(),ostream_iterator<string>(cout,", ")));
+      debug_do(cout<<endl);
+      debug_do(copy(result.back().begin(),result.back().end(),ostream_iterator<string>(cout,", ")));
+      debug_do(cout<<endl);
 
 
       return result;
