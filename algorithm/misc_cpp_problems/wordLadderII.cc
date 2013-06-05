@@ -16,6 +16,7 @@
 #include <iterator>
 #include <unordered_set>
 #include <deque>
+#include <unordered_map>
 using namespace std;
 
 #define debug_print(...) do {std::cout<<__func__<<"("<<__LINE__<<"): "<<__VA_ARGS__;} while(0)
@@ -35,40 +36,35 @@ public:
     //2 - visited previouse layer
     vector<size_t> visited;
     vector< vector<size_t> > back_trace;
-
-    inline bool is_diff_one(const string& str1, const string& str2)
-    {
-      debug_do(assert(str1.size()==str2.size()));
-      size_t diff_count=0;
-
-      for(size_t i=0; i<len_s;i++)
-      {
-        if (str1[i]!=str2[i])
-        {
-          diff_count++;
-          if (diff_count>1) return false;
-        }
-      }
-      if (diff_count==1)
-        return true;
-      debug_do(assert(0)); //greater than 1 will return in above loop
-      return false;
-    }
+    unordered_map<string,size_t> string_to_index_map;
 
     void add_string(const string& adding_s)
     {
       strs.push_back(adding_s);
       size_t node_count=strs.size();
+
+      string temp_str=adding_s;
+      string_to_index_map[adding_s]=node_count-1;
       debug_print("adding:"<<adding_s<<", s:"<<node_count<<endl);
-      for(size_t i=0;i<node_count-1;i++)
+
+      for(size_t i=0;i<len_s;i++)
       {
-        debug_print(" deal with:"<<strs[i]<<endl);
-        if (is_diff_one(strs[i],strs.back()))
+        for(temp_str[i]='a';temp_str[i]<='z';temp_str[i]++)
         {
-          debug_print(" link:"<<strs[i]<<", "<<strs.back()<<endl);
-          links[i].push_back(node_count-1);
-          links[node_count-1].push_back(i);
+          if (temp_str[i]!=adding_s[i])
+          {
+            debug_print("   deal with:"<<temp_str<<endl);
+            unordered_map<string,size_t>::iterator map_it=string_to_index_map.find(temp_str);
+            if (map_it!=string_to_index_map.end())
+            {
+              debug_print(" link:"<<temp_str<<", "<<adding_s<<endl);
+              debug_do(assert(map_it->second<node_count-1));
+              links[map_it->second].push_back(node_count-1);
+              links[node_count-1].push_back(map_it->second);
+            }
+          }
         }
+        temp_str[i]=adding_s[i];
       }
     }
 
@@ -77,8 +73,8 @@ public:
         // DO NOT write int main() function
       vector<vector<string> > result;
       unordered_set<string> my_dict=dict;
-      my_dict.erase(start);
-      my_dict.erase(end);
+      my_dict.insert(start);
+      my_dict.insert(end);
 
       len_s=start.size();
 
@@ -86,20 +82,25 @@ public:
       links.clear();
       visited.clear();
       back_trace.clear();
+      string_to_index_map.clear();
 
-      size_t dict_size=my_dict.size()+2;
+      size_t dict_size=my_dict.size();
       links.resize(dict_size);
       visited.resize(dict_size);
       back_trace.resize(dict_size);
 
 
+      unordered_set<string>::iterator start_it=my_dict.find(start);
+      unordered_set<string>::iterator end_it=my_dict.find(end);
       add_string(start);
       for(unordered_set<string>::iterator it=my_dict.begin(); it!=my_dict.end(); it++)
       {
-        add_string(*it);
+        if (it!=start_it && it!=end_it)
+          add_string(*it);
 
       }
       add_string(end);
+
 
 
       debug_do(copy(strs.begin(),strs.end(),ostream_iterator<string>(cout,", ")));
