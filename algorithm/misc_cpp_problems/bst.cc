@@ -617,8 +617,11 @@ Node<T>* reconstructNode(string str)
                   newTreeNode->right = newChildNode;
                   }
                 }
+              delete head;
               }
               working_on_current_tree=false;
+              delete head;
+              delete term;
               }
             else
               {
@@ -626,6 +629,7 @@ Node<T>* reconstructNode(string str)
               //push every in the stack into currentTree queue, until hit '('
               currentTree.push_front(ast);
               }
+            //do not delete ast, because it is pused into current tree.
             }
         }
       else
