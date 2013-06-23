@@ -14,10 +14,11 @@
 #include <time.h>
 #include <limits.h>
 #include <iterator>
-#include <unordered_set>
+#include <tr1/unordered_set>
 #include <deque>
-#include <unordered_map>
+#include <tr1/unordered_map>
 using namespace std;
+using namespace std::tr1;
 
 #define debug_print(...) do {std::cout<<__func__<<"("<<__LINE__<<"): "<<__VA_ARGS__;} while(0)
 #define debug_do(...) do { __VA_ARGS__;} while(0)
