@@ -1,3 +1,19 @@
+/*Method  1*/
+class Solution {
+public:
+    vector<int> grayCode(int n) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        vector<int> result;
+        int N = 1<<n;
+        for (int i=0; i<N; i++){
+            result.push_back(i ^ (i>>1));
+        }
+        
+        return result;
+    }
+};
+
+/*Method 2: Not PASS!??*/
 #include <iostream>
 #include <vector>
 using namespace std;
