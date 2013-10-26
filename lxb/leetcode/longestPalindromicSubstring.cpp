@@ -46,7 +46,46 @@ public:
     };
 };
 
-//Method2: Not pass OJ!!!!
+//Method2: expand from center. O(1) space, O(n2)
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        if (s.size() < 2) return s;
+        
+        string result = "";
+        
+        for (int i=0; i<s.size()-1;i++){
+            //center. one node
+            string p1 = expandCenter(s,i,i);
+            if (p1.size() > result.size()){
+                result = p1;
+            }
+            
+            //center. two nodes
+            if (s[i] == s[i+1]){
+                string p2 = expandCenter(s,i,i+1);
+                if (p2.size() > result.size()){
+                    result = p2;
+                }
+            }
+        }
+        
+        return result;
+    };
+    
+    string expandCenter(string &s, int l, int r)
+    {
+        int size=s.size();
+        while (l>=0 && r<size && s[l] == s[r]){
+            l--;
+            r++;
+        }
+        
+        return s.substr(l+1, r-l-1);
+    }
+};
+
+//Method3: Not pass OJ!!!!
 
 class Solution {
 public:
