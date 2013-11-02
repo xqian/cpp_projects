@@ -1,5 +1,7 @@
 http://oj.leetcode.com/submissions/detail/678794/
 
+/* Question: Implement pow(x, n). */
+
 class Solution {
 public:
     double pow(double x, int n) {

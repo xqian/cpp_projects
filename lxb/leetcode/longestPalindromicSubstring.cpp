@@ -1,4 +1,7 @@
 http://oj.leetcode.com/problems/longest-palindromic-substring/
+/*Question:
+Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+*/
 
 //Method 1： DP, time O(n2), space O(n2）
 class Solution {

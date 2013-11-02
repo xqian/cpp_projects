@@ -1,4 +1,10 @@
 http://oj.leetcode.com/problems/sqrtx/
+/*
+ Question:
+Implement int sqrt(int x).
+
+Compute and return the square root of x
+*/
 
 class Solution {
 public:

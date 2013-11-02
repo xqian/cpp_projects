@@ -1,5 +1,8 @@
 http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
-/* Question:
+
+/*
+ Question:
+
  Given a binary tree
 
     struct TreeLinkNode {
@@ -28,6 +31,8 @@ After calling your function, the tree should look like:
       2 -> 3 -> NULL
      / \  / \
     4->5->6->7 -> NULL
+Discuss
+
 
 */
 

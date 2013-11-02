@@ -1,4 +1,8 @@
 http://oj.leetcode.com/problems/plus-one/
+/*
+Question:
+Given a number represented as an array of digits, plus one to the number.
+*/
 
 class Solution {
 public:

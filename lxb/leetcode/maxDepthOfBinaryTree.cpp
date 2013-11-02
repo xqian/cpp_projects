@@ -1,5 +1,15 @@
 http://oj.leetcode.com/submissions/detail/716613/
 
+/* Question:
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Discuss
+
+
+*/
+
 /**
  * Definition for binary tree
  * struct TreeNode {
