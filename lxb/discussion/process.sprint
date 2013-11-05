@@ -1,0 +1,354 @@
+
+Scrum (software development)
+From Wikipedia, the free encyclopedia
+Software development process
+Coding Shots Annual Plan high res-5.jpg
+A software developer at work
+Activities and steps and for controlling
+Requirements Specification Architecture Construction Design Testing Debugging Deployment Maintenance
+Methodologies
+Waterfall Prototype model Incremental Iterative V-Model Spiral Scrum Cleanroom RAD DSDM RUP XP Agile Lean Dual Vee Model TDD FDD DDD
+Supporting disciplines
+Configuration management Documentation Quality assurance (SQA) Project management User experience design
+Tools
+Compiler Debugger Profiler GUI designer IDE Build automation
+v t e
+This article is about a software development framework. For other uses, see Scrum.
+Scrum is an iterative and incremental agile software development framework for managing software projects and product or application development. Its focus is on "a flexible, holistic product development strategy where a development team works as a unit to reach a common goal" as opposed to a "traditional, sequential approach". Scrum enables the creation of self-organizing teams by encouraging co-location of all team members, and verbal communication between all team members and disciplines in the project.
+
+A key principle of Scrum is its recognition that during a project the customers can change their minds about what they want and need (often called requirements churn), and that unpredicted challenges cannot be easily addressed in a traditional predictive or planned manner. As such, Scrum adopts an empirical approach—accepting that the problem cannot be fully understood or defined, focusing instead on maximizing the team's ability to deliver quickly and respond to emerging requirements.
+
+Like other agile development methodologies, Scrum can be implemented through a wide range of tools. Many companies use universal tools, such as spreadsheets to build and maintain artifacts such as the sprint backlog. There are also open-source and proprietary packages dedicated to management of products under the Scrum process. Other organizations implement Scrum without the use of any tools, and maintain their artifacts in hard-copy forms such as paper, whiteboards, and sticky notes.[1]
+
+Contents  [hide] 
+1 History
+2 Roles
+3 Sprint
+4 Meetings
+4.1 Daily Scrum
+4.2 Backlog refinement (grooming)
+4.3 Scrum of Scrums
+4.4 Sprint planning meeting
+4.5 End of cycle
+5 Artifacts
+5.1 Product Backlog
+5.2 Sprint Backlog
+5.3 Increment
+5.4 Burn down
+6 Terminology
+7 Scrum-ban
+8 References
+9 Further reading
+10 External links
+History[edit]
+
+Scrum was first defined as "a flexible, holistic product development strategy where a development team works as a unit to reach a common goal" as opposed to a "traditional, sequential approach" in 1986 by Hirotaka Takeuchi and Ikujiro Nonaka in the "New New Product Development Game".[2] Takeuchi and Nonaka later argued in "The Knowledge Creating Company"[3] that it is a form of "organizational knowledge creation, [...] especially good at bringing about innovation continuously, incrementally and spirally".
+
+The authors described a new approach to commercial product development that would increase speed and flexibility, based on case studies from manufacturing firms in the automotive, photocopier and printer industries.[4] They called this the holistic or rugby approach, as the whole process is performed by one cross-functional team across multiple overlapping phases, where the team "tries to go the distance as a unit, passing the ball back and forth".[4]
+
+In rugby football, a scrum refers to the manner of restarting the game after a minor infraction. In the early 1990s, Ken Schwaber used what would become Scrum at his company, Advanced Development Methods, and Jeff Sutherland, with John Scumniotales and Jeff McKenna, developed a similar approach at Easel Corporation, and were the first to refer to it using the single word Scrum.[5]
+
+In 1995, Sutherland and Schwaber jointly presented a paper describing the Scrum methodology at the Business Object Design and Implementation Workshop held as part of Object-Oriented Programming, Systems, Languages & Applications '95 (OOPSLA '95) in Austin, Texas, its first public presentation.[6] Schwaber and Sutherland collaborated during the following years to merge the above writings, their experiences, and industry best practices into what is now known as Scrum.
+
+In 2001, Schwaber worked with Mike Beedle to describe the method in the book Agile Software Development with Scrum.[7]
+
+Its approach to planning and managing projects is to bring decision-making authority to the level of operation properties and certainties.[8]
+
+Although the word is not an acronym, some companies implementing the process have been known to spell it with capital letters as SCRUM. This may be due to one of Ken Schwaber's early papers, which capitalized SCRUM in the title.[8]
+
+Hybridization of scrum is common as scrum does not cover the whole product development lifecycle; therefore, organizations find the need to add in additional processes to create a more comprehensive implementation. For example, at the start of the project, organizations commonly add process guidance on requirements gathering and prioritization, initial high-level design, and budget and schedule forecasting.
+
+Roles[edit]
+
+There are three core roles[9] and a range of ancillary roles. Core roles are often referred to as pigs and ancillary roles as chickens (after the story The Chicken and the Pig).
+
+The core roles are those committed to the project in the Scrum process—they are the ones producing the product (objective of the project). They represent the scrum team. Although other roles may be encountered in real projects, Scrum does not define any roles other than those described below.[10]
+
+Product Owner
+The Product Owner represents the stakeholders and is the voice of the customer. He or she is accountable for ensuring that the team delivers value to the business. The Product Owner writes (or has the team write) customer-centric items (typically user stories), ranks and prioritizes them, and adds them to the product backlog. Scrum teams should have one Product Owner, and while they may also be a member of the development team, this role should not be combined with that of the Scrum Master. In an enterprise environment, though, the Product Owner is often combined with the role of Project Manager as they have the best visibility regarding the scope of work (products).
+Development Team
+The Development Team is responsible for delivering potentially shippable product increments at the end of each Sprint (the Sprint Goal). A Team is made up of 7 +/- 2 individuals with cross-functional skills who do the actual work (analyse, design, develop, test, technical communication, document, etc.). The Development Team in Scrum is self-organizing, even though there may be some level of interface with project management offices (PMOs).
+Scrum Master
+Scrum is facilitated by a Scrum Master, who is accountable for removing impediments to the ability of the team to deliver the sprint goal/deliverables. The Scrum Master is not the team leader, but acts as a buffer between the team and any distracting influences. The Scrum Master ensures that the Scrum process is used as intended. The Scrum Master is the enforcer of the rules of Scrum, often chairs key meetings, and challenges the team to improve. The role has also been referred to as a servant-leader to reinforce these dual perspectives. The Scrum Master differs from a Project Manager in that the latter may have people management responsibilities unrelated to the role of Scrum Master. The Scrum Master role excludes any such additional people responsibilities.
+Sprint[edit]
+
+
+
+The Scrum process
+A sprint is the basic unit of development in Scrum. The sprint is a "timeboxed" effort; that is, it is restricted to a specific duration.[11] The duration is fixed in advance for each sprint and is normally between one week and one month, although two weeks is typical.[8]
+
+Each sprint is preceded by a planning meeting, where the tasks for the sprint are identified and an estimated commitment for the sprint goal is made, and followed by a review or retrospective meeting,[5] where the progress is reviewed and lessons for the next sprint are identified.[citation needed]
+
+Meetings[edit]
+
+Daily Scrum[edit]
+
+
+A daily scrum meeting in the computing room. This choice of location lets the team start on time.
+Each day during the sprint, a project team communication meeting occurs. This is called a daily scrum, or the daily standup. This meeting has specific guidelines:
+
+All members of the development team come prepared with the updates for the meeting.
+The meeting starts precisely on time even if some development team members are missing.
+The meeting should happen at the same location and same time every day.
+The meeting length is set (timeboxed) to 15 minutes.
+All are welcome, but normally only the core roles speak.
+During the meeting, each team member answers three questions:[12]
+
+What have you done since yesterday?
+What are you planning to do today?
+Any impediments/stumbling blocks? Any impediment/stumbling block identified in this meeting is documented by the Scrum Master and worked towards resolution outside of this meeting. No detailed discussions shall happen in this meeting.
+Backlog refinement (grooming)[edit]
+Backlog refinement is the ongoing process of reviewing product backlog items and checking that they are appropriately prioritised and prepared in a way that makes them clear and executable for teams once they enter sprints via the sprint planning activity. Product backlog items may be broken into multiple smaller ones, acceptance criteria may be clarified, or new preparatory work such as clarification on client needs or technical spikes may be identified.
+
+Backlog refinement is not a core scrum practice but has been adopted as a way of managing the quality of backlog items entering a sprint.[13]
+
+Scrum of Scrums[edit]
+Each day normally after the Daily Scrum:
+
+These meetings allow clusters of teams to discuss their work, focusing especially on areas of overlap and integration.
+A designated person from each team attends.
+The agenda will be the same as the Daily Scrum, plus the following four questions:
+
+What has your team done since we last met?
+What will your team do before we meet again?
+Is anything slowing your team down or getting in their way?
+Are you about to put something in another team's way?
+Sprint planning meeting[edit]
+At the beginning of the sprint cycle (every 7–30 days), a "Sprint planning meeting" is held:[11][14]
+
+Select what work is to be done
+Prepare the Sprint Backlog that details the time it will take to do that work, with the entire team
+Identify and communicate how much of the work is likely to be done during the current sprint
+Eight-hour time limit
+(1st four hours) Entire team:[15] dialog for prioritizing the Product Backlog
+(2nd four hours) Development Team:[16] hashing out a plan for the Sprint, resulting in the Sprint Backlog
+End of cycle[edit]
+At the end of a sprint cycle, two meetings are held: the "Sprint Review Meeting" and the "Sprint Retrospective".
+
+At the Sprint Review Meeting:[17]
+
+Review the work that was completed and the planned work that was not completed
+Present the completed work to the stakeholders (a.k.a. "the demo")
+Incomplete work cannot be demonstrated
+Four-hour time limit
+At the Sprint Retrospective:[18]
+
+All team members reflect on the past sprint
+Make continuous process improvements
+Two main questions are asked in the sprint retrospective: What went well during the sprint? What could be improved in the next sprint?
+Three-hour time limit
+This meeting is facilitated by the Scrum Master
+Artifacts[edit]
+
+
+This section needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed. (March 2013)
+Product Backlog[edit]
+The product backlog is an ordered list of "requirements" that is maintained for a product. It consists of features, bug fixes, non-functional requirements, etc. - whatever needs to be done in order to successfully deliver a working software system. The items are ordered by the Product Owner based on considerations like risk, business value, dependencies, date needed, etc. The features added to the backlog are commonly written in story format (See terminology below). The product backlog is the "What" that will be built, sorted in the relative order in which it should be built. It is open and editable by anyone, but the Product Owner is ultimately responsible for ordering the stories on the backlog for the Development Team. The product backlog contains rough estimates of both business value and development effort, these values are often, but not always, stated in story points using a rounded Fibonacci sequence. Those estimates help the Product Owner to gauge the timeline and may influence ordering of backlog items. For example, if the "add spellcheck" and "add table support" features have the same business value, the one with the smallest development effort will probably have higher priority, because the ROI (Return on Investment) is higher.
+
+The Product Backlog and business value of each listed item is the responsibility of the Product Owner. The estimated effort to complete each backlog item is, however, determined by the Development Team. The team contributes by estimating Items and User-Stories, either in Story-points or in estimated hours.
+
+Sprint Backlog[edit]
+
+
+A scrum task board
+The sprint backlog is the list of work the Development Team must address during the next sprint. The list is derived by selecting product backlog items from the top of the product backlog until the Development Team feels it has enough work to fill the sprint. This is done by the Development Team asking "Can we also do this?" and adding product backlog items to the sprint backlog. The Development Team should keep in mind its past performance assessing its capacity for the new sprint, and use this as a guide line of how much "effort" they can complete.
+
+The product backlog items are broken down into tasks by the Development Team. Tasks on the sprint backlog are never assigned; rather, tasks are signed up for by the team members as needed according to the set priority and the Development Team member skills. This promotes self-organization of the Development Team, and developer buy-in.
+
+The sprint backlog is the property of the Development Team, and all included estimates are provided by the Development Team. Often an accompanying task board is used to see and change the state of the tasks of the current sprint, like "to do", "in progress" and "done".
+
+Once a Sprint's Product Backlog is committed, no additional functionality can be added to the Sprint except by the team. Once a Sprint has been delivered, the Product Backlog is analyzed and reprioritized, if necessary, and the next set of functionality is selected for the next Sprint.
+
+Increment[edit]
+The increment is the sum of all the Product Backlog Items completed during a sprint and all previous sprints. At the end of a sprint, the Increment must be done according to the Scrum Team's definition of done. The increment must be in usable condition regardless of whether the Product Owner decides to actually release it.
+
+Burn down[edit]
+
+
+A sample burn down chart for a completed iteration, showing remaining effort and tasks for each of the 21 work days of the 1-month iteration
+Main article: burn down chart
+The sprint burn down chart is a publicly displayed chart showing remaining work in the sprint backlog. Updated every day, it gives a simple view of the sprint progress. It also provides quick visualizations for reference. There are also other types of burndown, for example the release burndown chart that shows the amount of work left to complete the target commitment for a Product Release (normally spanning through multiple iterations) and the alternative release burndown chart,[19] which basically does the same, but clearly shows scope changes to Release Content, by resetting the baseline.
+
+It should not be confused with an earned value chart.
+
+Terminology[edit]
+
+The following terminology is used in Scrum:[20]
+
+Scrum Team
+Product Owner, Scrum Master and Development Team
+Product Owner
+The person responsible for maintaining the Product Backlog by representing the interests of the stakeholders, and ensuring the value of the work the Development Team does.
+Scrum Master
+The person responsible for the Scrum process, making sure it is used correctly and maximizing its benefits.
+Development Team
+A cross-functional group of people responsible for delivering potentially shippable increments of Product at the end of every Sprint.
+Sprint burn down chart
+Daily progress for a Sprint over the sprint's length.
+Release burn down chart
+Sprint level progress of completed product backlog items in the Product Backlog.
+Product backlog
+A prioritized list of high-level requirements.
+Sprint backlog
+A prioritized list of tasks to be completed during the sprint.
+Sprint
+A time period (typically 1–4 weeks) in which development occurs on a set of backlog items that the team has committed to. Also commonly referred to as a Time-box or iteration.
+Spike
+A time boxed period used to research a concept and/or create a simple prototype. Spikes can either be planned to take place in between sprints or, for larger teams, a spike might be accepted as one of many sprint delivery objectives. Spikes are often introduced before the delivery of large or complex product backlog items in order to secure budget, expand knowledge, and/or produce a proof of concept. The duration and objective(s) of a spike will be agreed between the Product Owner and Delivery Team before the start. Unlike sprint commitments, spikes may or may not deliver tangible, shippable, valuable functionality. For example, the objective of a spike might be to successfully reach a decision on a course of action. The spike is over when the time is up, not necessarily when the objective has been delivered.
+Tracer Bullet
+The tracer bullet is a spike with the current architecture, current technology set, current set of best practices which results in production quality code. It might just be a very narrow implementation of the functionality but is not throw away code. It is of production quality and the rest of the iterations can build on this code. The name has military origins as ammunition that makes the path of the weapon visible, allowing for corrections. Often these implementations are a 'quick shot' through all layers of an application, such as connecting a single form's input field to the back-end, to prove the layers will connect as expected.
+Tasks
+Added to the product backlog item at the beginning of a sprint and broken down into hours. Each task should not exceed 12 hours, but it's common for teams to insist that a task take no more than a day to finish.
+Definition of Done (DoD)
+The exit-criteria to determine whether a product backlog item is complete. In many cases the DoD requires that all regression tests should be successful.
+Velocity
+The total effort a team is capable of in a sprint. The number is derived by evaluating the work completed from the last few sprint's product backlog items. This is a guideline for the team and assists them in understanding how much work they can do in a future sprint.
+Impediment
+Anything that prevents a team member from performing work as efficiently as possible.[21]
+Sashimi
+A report that something is "done". The definition of "done" may vary from one Scrum team to another, but must be consistent within one team.
+Abnormal Termination
+The Product Owner can cancel a Sprint if necessary.[22] The Product Owner may do so with input from the team, Scrum Master or management. For instance, management may wish to cancel a sprint if external circumstances negate the value of the sprint goal. If a sprint is abnormally terminated, the next step is to conduct a new Sprint planning meeting, where the reason for the termination is reviewed.
+ScrumBut
+A ScrumBut (or Scrum But) is an exception to the "pure" Scrum methodology, where a team has changed the methodology to adapt it to their own needs.[23][24]
+Scrum-ban[edit]
+
+Scrum-ban is a software production model based on Scrum and Kanban. Scrum-ban is especially suited for maintenance projects or (system) projects with frequent and unexpected work items or programming errors. In such cases the time-limited sprints of the Scrum model are of no appreciable use, but Scrum's daily meetings and other practices can be applied, depending on the team and the situation at hand. Visualization of the work stages and limitations for simultaneous unfinished work and defects are familiar from the Kanban model. Using these methods, the team's workflow is directed in a way that allows for minimum completion time for each work item or programming error, and on the other hand ensures each team member is constantly employed.[25]
+
+To illustrate each stage of work, teams working in the same space often use post-it notes or a large whiteboard.[26] In the case of decentralized teams, stage-illustration software such as Assembla, ScrumWorks, Rational Team Concert or JIRA in combination with Jira Agile[27] can be used to visualize each team's product backlog items, defects and tasks divided into separate phases.
+
+In their simplest, the tasks are categorized into the work stages:
+
+Unstarted
+Ongoing
+Completed
+If desired, though, the teams can add more stages of work (such as "defined", "designed", "tested" or "delivered"). These additional phases can be of assistance if a certain part of the work becomes a bottleneck and the limiting values of the unfinished work cannot be raised. A more specific task division also makes it possible for employees to specialize in a certain phase of work.[28]
+
+There are no set limiting values for unfinished work. Instead, each team has to define them individually by trial and error; a value too small results in workers standing idle for lack of work, whereas values too high tend to accumulate large amounts of unfinished work, which in turn hinders completion times.[29] A rule of thumb worth bearing in mind is that no team member should have more than two simultaneous selected tasks, and that on the other hand not all team members should have two tasks simultaneously.[28]
+
+The major differences between Scrum and Kanban are derived from the fact that, in Scrum, work is divided into sprints that last a certain amount of time, whereas in Kanban the workflow is continuous. This is visible in work stage tables, which in Scrum are emptied after each sprint. In Kanban all tasks are marked on the same table. Scrum focuses on teams with multifaceted know-how, whereas Kanban makes specialized, functional teams possible.[30]
+
+Since Scrum-ban is such a new development model, there is not much reference material. Kanban, on the other hand, has been applied by Microsoft and Corbis.[31]
+
+References[edit]
+
+Jump up ^ Dubakov, Michael (2008). "Agile Tools. The Good, the Bad and the Ugly." (PDF). Retrieved August 30, 2010.
+Jump up ^ "New New Product Development Game". Harvard Business Review 86116:137–146, 1986. January 1, 1986. Retrieved March 12, 2013.
+Jump up ^ The Knowledge Creating Company. Oxford University Press. 1995. p. 3. Retrieved March 12, 2013.
+^ Jump up to: a b Takeuchi, Hirotaka; Nonaka, Ikujiro (January–February 1986). "The New Product Development Game" (PDF). Harvard Business Review. Retrieved June 9, 2010.
+^ Jump up to: a b Sutherland, Jeff (2004-10). "Agile Development: Lessons learned from the first Scrum" (PDF). Retrieved September 26, 2008.
+Jump up ^ Sutherland, Jeffrey Victor; Schwaber, Ken (1995). Business object design and implementation: OOPSLA '95 workshop proceedings. The University of Michigan. p. 118. ISBN 3-540-76096-2.
+Jump up ^ Schwaber, Ken; Beedle, Mike (2002). Agile software development with Scrum. Prentice Hall. ISBN 0-13-067634-9.
+^ Jump up to: a b c Schwaber, Ken (February 1, 2004). Agile Project Management with Scrum. Microsoft Press. ISBN 978-0-7356-1993-7.
+Jump up ^ Gauthier, Alexandre (August 17, 2011). "What is scrum". Planbox.
+Jump up ^ "The Scrum Guide". Retrieved October 28, 2013.
+^ Jump up to: a b Sprint, Planning (January–February 2009). Sprint Planning Rules. Retrieved March 30, 2009.
+Jump up ^ Schwaber, p. 135
+Jump up ^ Cho, L (2009). "Adopting an Agile Culture A User Experience Team's Journey". Agile Conference. doi:10.1109/AGILE.2009.76.
+Jump up ^ Schwaber, p. 133
+Jump up ^ Ken Schwaber; Jeff Sutherland. "The Scrum Guide". p. 5.
+Jump up ^ Ken Schwaber; Jeff Sutherland. "The Scrum Guide". p. 6.
+Jump up ^ Schwaber, p. 137
+Jump up ^ Schwaber, p. 138
+Jump up ^ USA. "Invented by Mike Cohn, more info can be found here". Mountaingoatsoftware.com. Archived from the original on September 9, 2012. Retrieved September 13, 2012.
+Jump up ^ Schwaber, pp. 141–143
+Jump up ^ Little, Joe (January 17, 2011). Impediment Management. Agile Consortium
+Jump up ^ Ken Schwaber; Jeff Sutherland. "The Scrum Guide". p. 8.
+Jump up ^ "ScrumButs and Modifying Scrum". Scrum.org. Retrieved March 18, 2013.
+Jump up ^ Bloomberg, Jason (July 31, 2012). "The Scrum But Paradox". DevX.com. QuinStreet. Retrieved March 18, 2013.
+Jump up ^ "p.5 Crisp.se" (PDF). Retrieved September 13, 2012.
+Jump up ^ "Leansoftwareengineering.com". Retrieved September 13, 2012.
+Jump up ^ Dan Radigan (July 29, 2012). "Agile Project Management Software | Atlassian JIRA Agile". Atlassian.com. Retrieved October 28, 2013.
+^ Jump up to: a b "Leansoftwareengineering.com". Leansoftwareengineering.com. October 27, 2007. Retrieved September 13, 2012.
+Jump up ^ "p.18 - 19 Crisp.se" (PDF). Retrieved September 13, 2012.
+Jump up ^ "p.22 - 23 Crisp.se" (PDF). Retrieved September 13, 2012.
+Jump up ^ "(The video and the summary)". Infoq.com. Retrieved September 13, 2012.
+Further reading[edit]
+
+Jeff Sutherland; Ken Schwaber (2013). "The Scrum Guide". Retrieved July 2013.
+N.S. Janoff; L. Rising (2000). "The Scrum Software Development Process for Small Teams". Retrieved March 15, 2007.
+Deemer, Pete; Benefield, Gabrielle; Larman, Craig; Vodde, Bas (2009). "The Scrum Primer". Retrieved June 1, 2009.
+Kniberg, Henrik. "Scrum and XP from the Trenches". Retrieved August 9, 2010.
+Münch, Jürgen; Armbrust, Ove; Soto, Martín; Kowalczyk, Martin (2012). "Software Process Definition and Management". Retrieved July 16, 2012.
+External links[edit]
+
+	Wikimedia Commons has media related to Scrum (software development).
+Scrum.org, the home of Scrum
+Scrum Alliance, non-profit
+Agile Alliance's Scrum library
+A Scrum Process Description by the Eclipse Process Framework (EPF) Project
+BPMN process diagram of Scrum
+[hide] v t e
+Software engineering
+Fields	
+Computer programming Software Requirements Software deployment Software design Software maintenance Software testing Systems analysis Formal methods
+Concepts	
+Data modeling Enterprise architecture Functional specification Modeling language Orthogonality Programming paradigm Software Software architecture Software development methodology Software development process Software quality Software quality assurance Software archaeology Structured analysis
+Orientations	
+Agile Aspect-oriented Object orientation Ontology Service orientation SDLC
+Models	
+Developmental
+Agile EUP Executable UML Incremental model Iterative model RUP Scrum Prototype model Spiral model V-Model Waterfall model XP
+Other
+SPICE CMMI Data model ER model Function model Information model Metamodeling Object model Systems model View model
+Languages
+IDEF UML SysML
+Software
+engineers
+Kent Beck Grady Booch Fred Brooks Barry Boehm Peter Chen Ward Cunningham Ole-Johan Dahl Tom DeMarco Martin Fowler C. A. R. Hoare Watts Humphrey Michael A. Jackson Ivar Jacobson James Martin Stephen J. Mellor Bertrand Meyer David Parnas Winston W. Royce James Rumbaugh Niklaus Wirth Edward Yourdon Victor Basili
+Related fields	
+Computer science Computer engineering Enterprise engineering History Management Project management Quality management Software ergonomics Systems engineering
+Category Category  Commons
+Categories: Agile software developmentManagementProduction and manufacturingProject managementSoftware development process
+Navigation menu
+Create accountLog inArticleTalkReadEditView history
+Search
+Main page
+Contents
+Featured content
+Current events
+Random article
+Donate to Wikipedia
+Wikimedia Shop
+Interaction
+Help
+About Wikipedia
+Community portal
+Recent changes
+Contact page
+Tools
+Print/export
+Languages
+Български
+Català
+Dansk
+Deutsch
+Eesti
+Español
+فارسی
+Français
+한국어
+Italiano
+עברית
+Lietuvių
+Magyar
+Nederlands
+日本語
+Norsk bokmål
+Polski
+Português
+Română
+Русский
+Српски / srpski
+Srpskohrvatski / српскохрватски
+Suomi
+Svenska
+தமிழ்
+Türkçe
+Українська
+中文
+Edit links
+This page was last modified on 30 October 2013 at 17:19.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. 
+Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaDevelopersMobile viewWikimedia Foundation Powered by MediaWiki

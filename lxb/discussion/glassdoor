@@ -1,0 +1,1 @@
+Given a kernal code in "0"th machine. How soon you can replicate the kernal across N machines. Now if the machines has upload and download bandwidth constraints, how can you impove the copy time.
