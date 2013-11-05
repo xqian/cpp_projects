@@ -4,6 +4,7 @@ public:
     void solve(vector<vector<char>> &board) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         
+        //Always check boundary or special case.
         if (board.size() == 0) return; 
         
         int row = board.size();
