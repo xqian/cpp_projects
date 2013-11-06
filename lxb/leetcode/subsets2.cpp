@@ -84,3 +84,40 @@ public:
         }
     }
 };
+
+//Method 3: combination classic DFS . Using set to remove duplicate and copy back to vector.
+
+class Solution {
+public:
+    vector<vector<int> > subsetsWithDup(vector<int> &S) {
+      set<vector<int> > resultSet;
+      int index = 0;
+      vector<int> oneSolution;
+      
+      sort(S.begin(), S.end());
+      
+      DFS(S,0, oneSolution, resultSet);
+      vector<vector<int> > result(resultSet.begin(), resultSet.end());
+      
+      return result;
+    }
+    
+    void DFS(vector<int> &S, int index, vector<int> &oneSolution, set<vector<int> > &result)
+    {
+        // base
+        if (index == S.size()) {
+            result.insert(oneSolution);
+            return;
+        }
+        
+        // either choose it
+        oneSolution.push_back(S[index]);
+        DFS(S,index+1, oneSolution, result);
+        
+        //recover
+        oneSolution.pop_back();
+        
+        // or not choose
+        DFS(S,index+1, oneSolution, result);
+    }
+};
