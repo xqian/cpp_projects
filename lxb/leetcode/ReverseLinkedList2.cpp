@@ -22,6 +22,53 @@ Given m, n satisfy the following condition:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+/* Method 2:*/
+class Solution {
+public:
+    ListNode *reverseBetween(ListNode *head, int m, int n) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        
+        if (!head) return NULL;
+
+	//special case
+	if (m == n) return head;
+        
+        //find mth and m-1th.
+        ListNode dummy(-1);
+        dummy.next = head;
+        ListNode *prev = &dummy;
+        
+        // Pay attention to one-off error
+        // 1. find mth [1..m)
+        int index = 1;
+        while (head && index<m)
+        {
+            prev = head;
+            head = head->next;
+            index++;
+        }
+        
+        // Now reverse m..n
+        // 2. n is included: [m..n]
+        ListNode *tail = head;
+        while (head && index <= n)
+        {
+            ListNode *next = head->next;
+            head->next = prev->next;
+            prev->next = head;
+            head = next;
+            index++;
+        }
+       
+
+        if (tail != head)   tail->next = head; 
+        
+        return dummy.next;
+    }
+};
+
+// Method 1:
 class Solution {
 public:
     ListNode *reverseBetween(ListNode *head, int m, int n) {
