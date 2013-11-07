@@ -26,3 +26,28 @@ public:
         return S[row-1][col-1];
     }
 };
+
+//Method 2: define C type array with const.
+class Solution {
+public:
+    int minPathSum(vector<vector<int> > &grid) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        
+        const int m = grid.size();
+        const int n = grid[0].size();
+        
+        int DP[m][n];
+        
+        DP[0][0] = grid[0][0];
+        for (int row=1; row < m; row++)  DP[row][0] = DP[row-1][0] + grid[row][0];
+        for (int col=1; col<n; col++) DP[0][col] = DP[0][col-1] +grid[0][col];
+        
+        for (int i=1; i<m; i++)
+        for (int j=1; j<n; j++)
+        {
+            DP[i][j] = min(DP[i-1][j], DP[i][j-1]) + grid[i][j];
+        }
+        
+        return DP[m-1][n-1];
+    }
+};

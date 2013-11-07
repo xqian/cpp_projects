@@ -57,7 +57,7 @@ public:
     }
 };
 
-//Method 2
+//Method 2 : Prefable
 class Solution {
 public:
     vector<vector<int> > subsetsWithDup(vector<int> &S) {
