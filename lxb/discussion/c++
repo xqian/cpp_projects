@@ -1,0 +1,23 @@
+how to create an object to a specific memory location; what's the
+difference with regular new and replacement new; why use replacement new, 
+not type cast directly
+
+怎么设计实现facebook的fllow 和 朋友的最新动态
+
+写一个程序，找出 5^1234566789893943的从底位开始的1000位数字
+
+密码锁问题，实现最短密码问题，版上有讨论。
+
+抛硬币问题：抛一次出现正反面的概率都是50%。求抛5000次，最后正反两
+面出现次数相同的概率。follow up：求正反两面出现次数相同，并且在抛的过程中反
+面出现的次数从来没有多过正面的次数的概率。（这个就是valid parenthethis问题，
+catalan数）
+
+我从4月初开始认真准备找工作，前前后后准备了4个月，把leetcode认真做了3遍，将
+CC150好好做了2遍。将算法导论那本书看了3遍。还有好好看了design pattern，好好
+看了此人的博客 http://blog.csdn.net/v_july_v 。
+
+Given a integer array, test if there is any consequel subarray 
+which sum of elements is 0.
+            [7, 1, 1, -2, 3, 4] ==> true [1, 1, -1]
+
