@@ -14,6 +14,41 @@ A = [2,3,1,1,4], return true.
 A = [3,2,1,0,4], return false.
 */
 
+/* Greedy + Bruce Force */
+class Solution {
+public:
+    bool canJump(int A[], int n) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+
+        if (n < 2) return true;
+        
+        //greedy method.
+        int maxSteps = 0;
+        int i=0;
+        
+        while(i<n)
+        {
+            int oldMaxSteps = maxSteps;
+            do{
+                if ( i + A[i] > maxSteps){
+                    maxSteps = i+A[i];
+                }
+                
+                if (maxSteps >= n-1) return true;
+                
+                i++;
+            } while ( i <= oldMaxSteps);
+            
+            //can't make it.
+            if (oldMaxSteps == maxSteps) return false;
+        }
+        
+        return false;
+    }
+};
+
+
 class Solution {
 public:
     bool canJump(int A[], int n) {
