@@ -1,0 +1,14 @@
+(Facebook)
+Write code to do arithmetic expression validation: 
+digits: 0..9
+operators: +, -, (, )
+
+E.g.:
+1+2-3  valid
+1+(2-(3+4)) valid
+-2 not valid
+
+两个stacks 一个放数 一个放opetator和左括号 碰到右括号pop运算符对top的两个数
+运算 结果push进stack 直到碰到左括号 
+如果数的stack少于两个数无法运算或没有左括号match或最后数的stack里多于一个数
+剩下 则不是valid
