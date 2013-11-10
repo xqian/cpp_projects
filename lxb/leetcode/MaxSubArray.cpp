@@ -37,3 +37,27 @@ public:
         return maxSum;
     }
 };
+
+/* Method 2: DP  + 动态数组 */
+class Solution {
+public:
+    int maxSubArray(int A[], int n) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        // DP
+        assert(n>0);
+        
+        //DP[i]: end with i, the maxSubArray
+        vector<int> DP(2);
+        DP[0] = A[0];
+        
+        int maxSum = A[0];
+        
+        for (int i=1; i<n; i++)
+        {
+            DP[i%2] = max(DP[(i+1)%2]+A[i], A[i]);
+            if (DP[i%2] > maxSum) maxSum = DP[i%2];
+        }
+        
+        return maxSum;
+    }
+};
