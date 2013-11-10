@@ -39,3 +39,35 @@ public:
     }
 };
 
+
+/* Method 2 */
+http://oj.leetcode.com/problems/triangle/
+Notes: It complains runtime error with cycle array.
+
+class Solution {
+public:
+    int minimumTotal(vector<vector<int> > &triangle) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        if (triangle.empty()) return 0;
+        if (triangle.size() == 1) return triangle[0][0];
+        
+        // DP[i][j] : start from row i, col j, the minipath.
+        // Cycle Array since only two rows are involoved.
+        vector<vector<int> > DP(2, vector<int>(triangle[0].size(), INT_MAX));
+        
+        //Start from last line.
+        for (int i=0; i< triangle[0].size(); i++)
+        {
+            DP[(triangle.size()-1)%2][i] = triangle[triangle.size()-1][i];
+        }
+        
+        //DP
+        for (int i=triangle.size()-2; i>=0; i--)
+        for (int j=0; j<=i;j++)
+        {
+            DP[i%2][j] = min(DP[(i+1)%2][j], DP[(i+1)%2][j+1]) + triangle[i][j];
+        }
+        
+        return DP[0][0];
+    }
+};
