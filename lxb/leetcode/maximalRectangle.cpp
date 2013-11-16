@@ -4,15 +4,6 @@ http://oj.leetcode.com/problems/maximal-rectangle/
  Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area.
 */
 
-Note: There is bug.
-
-Submission Result: Wrong Answer
-
-Input:	["01101","11010","01110","11110","11111","00000"]
-Output:	8
-Expected:	9
-
-
 class Solution {
 public:
     int maximalRectangle(vector<vector<char> > &matrix) {
@@ -35,44 +26,59 @@ public:
                 }
             }
             
-            //get max history rectangle size
-            maxArea = max(maxArea, maxRectHistArea(matrix, hist));
+            //get max hist rectangle area
+            maxArea = max(maxArea, largestRectangleArea(hist));
         }
         
         return maxArea;
     }
     
+public:
+    struct Item{
+        int index;
+        int height;
+        Item(int i,int h):index(i),height(h){};
+        Item():index(-1),height(0){};
+    };
+    
+
 private:
-    int maxRectHistArea(vector<vector<char> > &matrix, vector<int> &hist)
-    {
-        stack<int> S; //store array index;
-        int maxArea = INT_MIN;
+    int largestRectangleArea(vector<int> &height) {
+        stack<Item> S;
+        int N = height.size();
+        int area = 0;
         
-        for (int i=0; i<hist.size(); i++)
+        for (int i=0; i<N; i++)
         {
             if (S.empty()) {
-                S.push(i);
+                S.push(Item(i,height[i]));
                 continue;
             }
             
-            while(!S.empty() && hist[S.top()] > hist[i]) {
-                int index = S.top();
-                S.pop();
+            //compare
+            if (height[i] < S.top().height){
+                //pop till empty or smaller item appear
+                Item item;
+                while (!S.empty() && S.top().height > height[i]) {
+                    item = S.top();
+                    S.pop();
+                    
+                    area = max(area, (i - item.index)*item.height);
+                }
                 
-                int area = (i - index)*hist[index];
-                if (area > maxArea) maxArea = area;
+                //push. Pay attention to the index
+                S.push(Item(item.index, height[i]));
+            }else{
+                S.push(Item(i,height[i]));
             }
-            
-            S.push(i);
         }
         
-        //clean stack
+        //stack maybe not empty yet
         while(!S.empty()){
-            int area = (hist.size() - S.top())*hist[S.top()];
-            if (area > maxArea) maxArea = area;
-            S.pop();
+            Item item = S.top(); S.pop();
+            area = max(area, (N - item.index)*item.height);
         }
         
-        return maxArea;
+        return area;
     }
 };
