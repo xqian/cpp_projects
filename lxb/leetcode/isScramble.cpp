@@ -71,3 +71,67 @@ public:
         return false;
     }
 };
+
+
+/* Failure trial 2: timeout this time */
+class Solution {
+public:
+    bool isScramble(string s1, string s2) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        
+        if (s1.size() != s2.size()) return false;
+        if (s1.empty()) return true;
+        
+        if (s1.size() == 1) return s1==s2;
+        
+        return isScramble(s1, 0, s2, 0, s1.size());
+    }
+    
+    
+private:
+    bool isScramble(string &s1, int start1, string &s2, int start2, int len)
+    {
+        //prune
+        if ( ! isAnagram(s1, start1, s2, start2, len) ) {
+            return false;
+        }
+        
+        if (len==1) return true;
+        
+        for (int i=start1; i< len; i++)
+        {
+            if ( isAnagram(s1, start1, s2, start2, i-start1+1) &&
+                 isScramble(s1,start1,s2,start2,i-start1+1) &&
+                 isScramble(s1,i+1, s2, i+1, len - (i-start1 +1)))
+                 return true;
+            
+            if ( isAnagram(s1, start1, s2, start2 + len-(i-start1+1),i-start1+1) &&
+                 isScramble(s1,start1,s2,start2+len-(i-start1+1),i-start1+1) && 
+                 isScramble(s1,i+1,s2,start2,len - (i-start1+1)) )
+                return true;
+        }
+        
+        return false;
+    }
+    
+    bool isAnagram(string &s1, int start1, string &s2, int start2, int len)
+    {
+        vector<int> hash(256,0);
+        for (int i=0; i<len; i++ ){
+            hash[s1[start1+i]]++;
+        }
+        
+        for (int j=0; j<len; j++){
+            hash[s2[j+start2]]--;
+            if (hash[s2[j+start2]] < 0) return false;
+        }
+        
+        for (int i=0; i<hash.size(); i++)
+        {
+            if (hash[i] != 0) return false;
+        }
+        
+        return true;
+    }
+};
