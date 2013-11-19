@@ -37,3 +37,33 @@ public:
         
     }
 };
+
+/* Method 2 */
+From back to front.
+
+class Solution {
+public:
+    bool wordBreak(string s, unordered_set<string> &dict) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        
+        int N = s.size();
+        vector<bool> DP(N+1,false); // DP[i] :i..N-1, whether it can be breakable
+        
+        DP[N] = true;
+        
+        for (int i = N-1; i>=0; i--)
+        {
+            for (int j=i; j<N; j++)
+            {
+                if ( DP[j+1] && dict.find( s.substr(i,j-i+1) ) != dict.end() )
+                {
+                    DP[i] = true;
+                    break;
+                }
+            }
+        }
+        
+        return DP[0];
+    }
+};
