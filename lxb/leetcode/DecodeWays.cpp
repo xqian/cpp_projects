@@ -23,15 +23,16 @@ public:
         int N = s.size();
         if (N == 0 ) return 0;
        
-       vector<int> DP(N+2,1); //DP[i] means the ways to decode it from string i..N-1
+       vector<int> DP(N+1,0); //DP[i] means the ways to decode it from string i..N-1
+       DP[N] = 1;
        
        // State transition:
-       // DP[i-1] = DP[i]
-       // DP[i-1] += DP[i+1] if s[i-1] == '1' || s[i-1] =='2' && s[i] < '7'
+       // DP[i] = DP[i+1]
+       // DP[i] += DP[i+2] if s[i-1] == '1' || s[i-1] =='2' && s[i] < '7'
        
        for (int i=N-1; i>=0; i--){
-           //Invalid
            if (s[i] == '0') {
+               //Invalid
                DP[i] = 0;
                continue;
            }
