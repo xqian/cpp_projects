@@ -1,10 +1,9 @@
 http://oj.leetcode.com/problems/scramble-string/
 
-
 Issue: Very hard. Here is the DFS solution brute force, but inefficient and timeout.
-
-Submission Result: Time Limit Exceeded
-Last executed input:	"abcdefghijklmn", "efghijklmncadb"
+Solutions: 1. Handling array and move away from off-by-one error by using array start index + len, compared two index.
+	   2. Handle anagram method. Hash, unordered_multiset<char> to allow dup.
+	   3. prune it as much as possible, as early as possible.
 
 /* Question:
 Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
@@ -95,7 +94,74 @@ bool isAnagram(const string & s1, int start1, const string & s2, int start2, int
 }; 
 
 
+Method 4: Finally, it worked. :()
+class Solution {
+public:
+    bool isScramble(string s1, string s2) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        
+        if (s1.size() != s2.size()) return false;
+        if (s1.empty()) return true;
+        
+        if (s1.size() == 1) return s1==s2;
+        
+        return isScramble(s1, 0, s2, 0, s1.size());
+    }
+    
+    
+private:
+    bool isScramble(const string &s1, int start1, const string &s2, int start2, int len)   //tip: array index +len to operate.
+    {
+        //prune
+        if ( ! isAnagram(s1, start1, s2, start2, len) ) {
+            return false;
+        }
+        
+        if (len==1) return true;
+        
+        for (int i=1; i< len; i++) //Bug prone: < len, otherwise, it's the same problem.
+        {
+            if ( isAnagram(s1, start1, s2, start2, i) &&
+                 isScramble(s1,start1,s2,start2,i) &&
+                 isScramble(s1,start1+i, s2, start2+i, len-i))
+                 return true;
+            
+            if ( isAnagram(s1, start1, s2, start2 + len-i,i) &&
+                 isScramble(s1,start1, s2, start2+len-i, i) && 
+                 isScramble(s1,start1+i,s2,start2,len-i) )
+                return true;
+        }
+        
+        return false;
+    }
+    
+    bool isAnagram(const string &s1, int start1, const string &s2, int start2, int len)
+    {
+        vector<int> hash(256,0);  //hardcode? Ok.. enn
+        for (int i=0; i<len; i++ ){
+            hash[s1[start1+i]]++;
+        }
+        
+        for (int j=0; j<len; j++){
+            hash[s2[j+start2]]--;
+            if (hash[s2[j+start2]] < 0) return false;
+        }
+        
+        for (int i=0; i<hash.size(); i++)
+        {
+            if (hash[i] != 0) return false;
+        }
+        
+        return true;
+    }
+};
+
+
 Method 1: timeout.
+Submission Result: Time Limit Exceeded
+Last executed input:	"abcdefghijklmn", "efghijklmncadb"
+
 
 class Solution {
 public:
