@@ -1,0 +1,30 @@
+http://stackoverflow.com/questions/14558330/multi-threading-in-a-tree-like-structure
+
+Below is the Question I was asked in an interview and I believe there are many solutions to this question but I want to know what can be the best solution (and stackoverflow is perfect for this :) ).
+
+Q: We have a tree like structure and have three threads. Now we have to perform three operations: Insert, Delete and lookup. How will you design this?
+
+My Approach: I will take mutex for insert and delete operation as I want only one thread to perform at a time insert or delete. While in case of lookup I will allow all the three threads to enter in the function but keep a count(counting semaphore) so that insert and delete operation can't be perform this time. Similarly when insert or delete operation is going no thread is allowed to do lookup, same with the case for insert and delete.
+
+Now he cross questioned me that as I am allowing only one thread at a time to insert so if two nodes on different leaf need to be inserted then still my approach will allow one at a time, this made be stuck.
+
+Is my approach fine ? What can be other approaches ?
+
+<Answer>
+How about like this? Similar to a traffic road block(broken paths).
+
+Each node will have two flags say leftClear_f and rightClear_f indicating clear-path ahead
+There will be only one MutEx for the tree
+Lookup Operation:
+
+If flags are set indicating path ahead is under modification, got to conditional_wait and wait for signal.
+after getting signal check the flag and continue.
+Insert Operation
+
+follow the Lookup till you get to the location of insertion.
+acquire MutEx and set relevant flag of parent_node and both child_nodes after checking their state.
+Release the MutEx so that parallel Delete/Insert can happen on other valid unbroken paths
+Acquire MutEx after insert operation and update the relevant flag in the parent_node and child_nodes.
+Delete Operation same as Insert operation except that it deletes nodes.
+
+PS: You can also maintain the details of the nodes under Insert or Delete process someplace else. Other operation can jump the broken paths if necessary/needed! It sounds complicated yet doable.

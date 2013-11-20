@@ -1,0 +1,30 @@
+http://www.careercup.com/question?id=15856737
+
+This is a bare minimum logic: 
+
+There are users. 
+User has a list of Posts. 
+User has a list of friends. 
+There is a news feed for each user. 
+News feed has a list of Posts collected from your friends list Using Observer pattern.
+
+
+Use MVC where 
+
+public class Controller { //User updates will make a call to this class 
+statusUpdate(String userId, Status status); //makes call to model 
+postPhoto(String userId, Photo photo); 
+} 
+
+public class Model { //Does db updates and notifies view 
+statusUpdate(String userId, Status status); //Updates status in DB, finds user and his friends, notifies friends views with new status 
+postPhoto(String userId, Photo photo); 
+} 
+
+public class View { 
+String userId; 
+Wall wall; 
+updateWall(User user, Status status); 
+updateWall(User user, Photo photo); 
+
+}
