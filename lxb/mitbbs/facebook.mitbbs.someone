@@ -1,0 +1,160 @@
+发信人: a060601199 (昵称), 信区: JobHunting
+标  题: Re: 有人整理过FB的面试题么
+发信站: BBS 未名空间站 (Tue Nov 19 02:33:02 2013, 美东)
+
+之前稍微收集了一下
+
+glassdoor
+===================
+edit distance
+
+level traverse tree(高频）
+
+1) Calculate the square root of a double（高频）
+
+2) Given n intervals [si, fi], find the maximum number of overlapping 
+intervals.
+
+3) Print all the paths from root to every leaf in a binary tree.
+
+4) Print the sum of all the numbers at every vertical level in a binary tree
+
+5) Given a set of n jobs with [start time, end time, cost] find a subset so 
+that no 2 jobs overlap and the cost is maximum ?
+
+6) Given 1 trillion messages on fb and each message has at max 10 words, how
+do you build the index table and how many machines do you need on the 
+cluster to store the index table ?
+total data = 1 trillion * 10 words * 6 bytes / word = 60TB = one small 
+NetApp box
+index by hashed userid ; will distribute traffic effectively across servers 
+; cache active users recent messages in memory
+
+mapreduce
+
+return the value of a roman number given in a string
+
+Given two string representations of binary numbers (e.g. "1001", "10") write
+a function that adds them and returns the result as a string as well (e.g. 
+"1011").
+
+a) first, write a function to calculate the hamming distance between two 
+binary numbers
+(b) write a function that takes a list of binary numbers and returns the sum
+of the hamming distances for each pair
+O(n) solution is recore each position how many 1 and how many 0, and 
+multiply them for each position and add together
+
+combination(高频）
+permutation , the k-th permutation 
+
+You are given a string with each english character translated to its 
+alphabetical position (e.g., the string "ABC" --> "123"). Provide a function
+that, when provided the string as an argument, will return the maximum 
+number of strings the encoded string could represent (for example, "123" 
+could represent "ABC", "LC", or "AW").
+kind of like DFS
+
+Database design
+
+FB Check In services
+
+Getting maximum and minimun number was not difficult but getting less than n
+comparison was tricky
+sorted? bucket? radix?
+
+BFS
+
+strstr()
+
+
+The second problem was another classic DP problem. Finding the sum of 1's in
+a submatrix. I went on to describe the recurring relation for the 
+subproblem in the linear case. She didn't want me to do that and she quickly
+said the solution to the 2D case was a generalization of the 1D case.
+seems is find the max sum submatrix, time O(n^3), space O(n^2) 2D version of
+Kadane's
+
+a palindrome for strings with symbols and spaces in them
+
+finding all the anagrams in an array of strings
+
+finding the number of ways a given score could be reached for a game with 3 
+different ways of scoring (e.g. 3, 5 and 10 points). aka leetcode Climbing 
+Stairs
+
+printing a binary tree L-R, (from left to right?? level traversal?
+
+and implementing a comparator function to sort files based on a certain 
+naming convention.
+
+regular_expression_match
+
+graph traversal
+
+Implement a LRU cache in C++.
+
+Given a binary search tree, write an algorithm to find the kth smallest 
+element 
+inorder seach
+
+binary search on a shifted array, find the offset (2) in log n
+find the beginning of the array, if (right - left  <= 1) then return min(
+left,right);
+
+design newsfeed
+
+write a json beautify
+
+Given a vector of Nodes, each of which contain the start and end time of a 
+meeting, find the maximum number of rooms one would have to book for the day
+. 
+seems is the max overlap: 1) sort based on start time 2) scan meeting one by
+one, insert new meeting, and then scan the meetings in linked list, if they
+stil valid for the new start time, then max++, otherwise clear them out
+time should be O(n^2)
+
+How would you query for all the Places near a given coordinate? The focus is
+on how to scale this to a large number of places while keeping response 
+time to within acceptable user expectacions.  
+
+finding anagrams in a string.
+
+Reverse a linked list
+
+Identify if the words in a given sentence are in a built in dictionary.
+===============================================
+
+
+
+mitbbs
+============
+bubble sort
+leetcode 电话号码
+When will java destruct object. (automatic garbage collection for 
+unused object that no reference points to it, finalize() method is called 
+weh it decide to collect it)
+8.    Java stuff: how to avoid other programmer from changing the function. 
+(Final keyword)
+What is the transient keyword.(indicate that a field should not be 
+serialized.aka not persisted )
+How to use stacks to simulate queue(two stacks)
+lowest common ancestor(cc150 P233)
+Given a linked list, say A->B->C, print it in reversed order. Time & 
+space analysis. What if I want the original list not changed?(recursion) How
+about 
+multithreads call this functions simultaneously?(seems ok?)
+怎么判断两个linkedlist meet(make the first linkedlist tail point to the head
+of the second linkedlist, then become the find cycle problem, if just 判断
+then loop two list then if the last element is the same then it will meet.)
+有个矩阵，里面都是0和1，找最大的cluster，相邻或对角(BFS, search 1, then BFS
+it, market visited point to #, get the areas, at the end revert # to 1)
+longest increasing subsequence:
+
+revert linkedlist(recussion and non-recussion)
+leetcode sort color
+两个list相加，优化代码
+regular expression
+given an array, find out the max sum of a set that each elements are non-
+: ajacent.动态规划很简单，刚开始用了数组来存，发现两个变量滚动赋值就可以了
+设计题，地图搜索，怎样设计index
