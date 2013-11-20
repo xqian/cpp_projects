@@ -26,7 +26,7 @@ public:
         int sum = 0;
         while (*str != '\0' && isdigit(*str)){
             // overflow
-            if ( result == 214748364 && *str > '7' || result >214748364){
+            if ( result == INT_MAX/10&& *str > '7' || result >INT_MAX/10){
                 return negative ? INT_MIN:INT_MAX;
             }
             
