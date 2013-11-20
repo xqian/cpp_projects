@@ -88,6 +88,50 @@ public:
     }
 };
 
+//Method2': improved a little bit.
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        
+        if (s.size() <= 1) return s;
+    
+        int N = s.size();
+        string res = "";
+        
+        for (int i=0; i<N; i++)
+        {
+            string temp = expandCenter(s, i, i);
+            if (temp.size() > res.size()) res = temp;
+            
+            // expand two
+            if (i>0 && s[i] == s[i-1]){    //tip: always do boundary check for indices operation.
+                string temp2 = expandCenter(s,i-1,i);
+                if (temp2.size() > res.size()) res = temp2;
+            }
+        }
+        
+        return res;
+    }
+    
+private:
+    string expandCenter(const string &s, int l, int r)
+    {
+        assert(l<=r);
+        
+        while (l>=0 && r<s.size() && s[l] == s[r]){
+            l--;
+            r++;
+        }
+        
+        //[l,r] is the max len palindrom.
+        l++;
+        r--;
+        
+        return s.substr(l, r-l+1);
+    }
+};
+
+
 //Method3: Not pass OJ!!!!
 
 class Solution {
