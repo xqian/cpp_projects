@@ -1,0 +1,97 @@
+发信人: Jc2013 (屌丝的逆袭), 信区: JobHunting
+标  题: Re: 有没有人总结过Linkedin的面经题？跪谢！！
+发信站: BBS 未名空间站 (Wed Nov 20 22:20:21 2013, 美东)
+
+攒人品
+
+From MITBBS:
+
+
+1. 给一个二叉树 返回镜像 (Binary Tree Mirror)
+
+2. Implement a thread-safe blocking queue.
+
+3. 一个嵌套Map， 就是一个HashMap, 它的value可以是一个element也可以是另外一个
+嵌套map或是空的map. 实现一个iterator来遍历这个map里面的所有element。 就是类
+似树遍历一样的方法
+
+4. 给你一个数组，其中一个数出现了大于N／３次，N是数组长度。怎么找？我先说
+HASHTABLE，他问我还有没有什么办法。想来想去只能SORT. 他就问下一题了。不知道
+还有没有什么最优解。我觉得那种针对一个数字出现过大于N／２的VOTING ALGORITHM
+好象不是很合适吧。
+
+5.后缀波兰表达式STRING转换为中缀表达式的STRING。
+这题本来很简单，但我可能算错了。纠结的地方是a,b,+,c,/ 
+到底是 (c/(a+b)) 还是 ((a+b)/c)
+
+6. Implement pow(double a, int b)
+  
+7. 接着给Amazon的favorite, 2-sum to fixed number, 我不喜欢写这个题。就直接告
+诉他：两种答案，hashtable, 2个指针，我都写过，你要哪种？他挺理解，说，既然你
+写过，给我讲一下性能差别，然后就放过了。
+
+8. 算逆波兰表达式。又是一个细节题，我知道会写错。小心翼翼地写，一边写一边解
+释，最后还是有小错。
+
+9. 判断一个input string是不是valid number
+
+10. Implement List Interface.
+
+11. Search a 2D sorted array
+
+12. coding就问了在数组中那个查找那个出现概率不小于1/2的数。后来做延伸到找K个
+这样的数，不过那个面试者显然搞错了，说要求找top K个出现次数>=N/K (N是数组大
+小)的数，这样唯一可能性就只有K个数每个都出现N/K次。开始被让晕了，后来发现这
+个问 题。 
+
+13. 给两个已排序数组，要求返回他们的交集和并集.我就用两个指针分别指向两个数
+组，从左向右扫一遍.我也说了hash的方法.对方又问能不能用merge的方法，我回答能
+，但是不觉得复杂度更低。 
+
+14. 题目描述起来很简单，就是给出一个数，找出所有Unique的组合。 比如： 2 ：　
+１＋１ 
+３：　　１＋２，　１＋１＋１　 
+４：　　１＋３，　１＋２，　１＋１＋１＋１，　２＋２ 
+
+15. 2. 数组连续最大和, 
+上面的都回答完后，还有不少时间，又让实现最大乘积，这个没做好。从来没写过，现
+写的时候出了不少问题，最后也只是写了个主体,我说 有些细节我没时间了，说说得了
+。感觉面试官也没什么idea，因为我问她0的情况你觉得怎么处理好，她也只说了些需
+要reset什么的。有空准备写一下这个。整体感觉还可以，如果因为这个题就悲剧了也
+没什么好说的。
+
+16. /** Compute the value of an expression in Reverse Polish order. 
+Supported operators are "+", "-", "*" and "/". 
+* Reverse Polish is a postfix mathematical notation in which each operator 
+immediately follows its operands. 
+* Each operand may be a number or another expression. 
+* For example, 3 + 4 in Reverse Polish is 3 4 + and 2 * (4 + 1) would be 
+written as 4 1 + 2 * or 2 4 1 + *
+Calculate value? we use stack to do
+
+17. search in transposed array 
+
+18. 两种方法写Singleton 
+
+19. 问了Mutex, Semaphore 
+
+20. implement memmove(void* src, void* dec, size_t num_bytes)
+
+21. 输入是个stream
+class input_stream
+{
+    // Character or -1
+    int read();
+}
+每次call read（），返回一个char，如果到头了就是返回-
+
+21. Roman To Integer
+
+22. Text Justification
+
+23. String to integer
+
+24. Insert interval
+
+25. Celebrity Problem
+--
