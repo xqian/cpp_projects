@@ -32,7 +32,8 @@ public:
         // the same Solution instance will be reused for each test case.
         
         // sort interval by start
-        sort(intervals.begin(), intervals.end(), myobj);
+        //sort(intervals.begin(), intervals.end(), myobj);   //Method 1.
+        sort(intervals.begin(), intervals.end(), mycomp());  //Method 2.
         
         vector<Interval> result;
         
