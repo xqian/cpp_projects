@@ -68,3 +68,19 @@ public:
         
     }
 };
+
+Method 2: Just recursive with preorder.
+
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+       if (!root) return;
+       
+       if (root->left)  root->left->next = root->right;
+       if (root->right) root->right->next = root->next ? root->next->left : NULL;
+       
+       connect(root->left);
+       connect(root->right);
+    }
+};
