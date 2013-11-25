@@ -9,6 +9,9 @@ http://oj.leetcode.com/problems/unique-binary-search-trees-ii/
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+Solution: DFS.
+
 class Solution {
 public:
     vector<TreeNode *> generateTrees(int n) {
@@ -23,27 +26,19 @@ public:
             return result;
         }
         
-         if (start == end)  {
-             result.push_back(new TreeNode(start));
-             return result;
-         }
-        
         for (int i=start; i<= end; i++){
-            vector<TreeNode *> left  = generateTreesHelper(start,i-1);
-            vector<TreeNode *> right = generateTreesHelper(i+1,end);
+            vector<TreeNode *> leftTrees  = generateTreesHelper(start,i-1);
+            vector<TreeNode *> rightTrees = generateTreesHelper(i+1,end);
             
-            //merge.. ??
-            for (int j=0;j<left.size();j++)
-            for (int k=0;k<right.size();k++){
+            for (int j=0;j<leftTrees.size();j++)
+            for (int k=0;k<rightTrees.size();k++){
                 TreeNode *root = new TreeNode(i);
-                root->left = left[j];
-                root->right = right[k];
+                root->left = leftTrees[j];
+                root->right = rightTrees[k];
                 result.push_back(root);
             }
         }
         
         return result;
     }
-    
-    
 };
