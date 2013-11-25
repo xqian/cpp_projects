@@ -31,6 +31,9 @@ Here's an example:
 The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 */
 
+Solution 1: 1) iterative  + stack
+	    2) Morris inorder travel.
+
 /**
  * Definition for binary tree
  * struct TreeNode {
@@ -70,5 +73,54 @@ public:
         }
         
         return result;
+    }
+};
+
+
+Method 2: Morris inorder travel
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode *root) {
+        
+       //Morris InOrder travel , space O(1), but it modified the node.
+       vector<int> res;
+       TreeNode *curr = root;
+       
+       while(curr){
+           if (curr->left){
+                auto *prev = curr->left;
+                
+                //find previous node 
+                while(prev->right && prev->right != curr) {
+                    prev = prev->right;
+                }
+                
+                if (prev->right){
+                    //second time
+                    prev->right = NULL;
+                    res.push_back(curr->val);
+                    curr = curr->right;
+                }else{
+                    //first time
+                    prev->right = curr;
+                    curr = curr->left;
+                }
+           }else{
+               res.push_back(curr->val);
+               curr=curr->right;
+           }
+       }
+       
+    return res;
     }
 };
