@@ -42,3 +42,35 @@ public:
         return result;
     }
 };
+
+// Method 2: DP. one of error.
+class Solution {
+public:
+    vector<TreeNode *> generateTrees(int n) {
+        vector<TreeNode *> DP[n+1];
+        DP[0] = vector<TreeNode *>(1,(TreeNode *)NULL);
+        
+        for (int i=1; i<=n; ++i)
+        for (int j=1; j<=i; ++j)
+        {
+            for (int k=0; k<DP[j-1].size(); ++k)
+            for (int m=0; m<DP[i-j].size(); ++m)
+            {
+                TreeNode *root = new TreeNode(j);
+                copyNode(DP[j-1][k], root->left, 0);
+                copyNode(DP[i-j][m], root->right, j);
+                DP[i].push_back(root);
+            }
+        }
+        
+        return DP[n];
+    }
+    
+    void copyNode(TreeNode *ori, TreeNode *&copy, int shift)
+    {
+        if (!ori) return;
+        copy = new TreeNode(ori->val+shift);
+        copyNode(ori->left, copy->left, shift);
+        copyNode(ori->right, copy->right, shift);
+    }
+};
