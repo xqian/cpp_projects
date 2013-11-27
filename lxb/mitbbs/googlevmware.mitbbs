@@ -1,0 +1,97 @@
+发信人: a060601199 (昵称), 信区: JobHunting
+标  题: google, vmware 面经
+发信站: BBS 未名空间站 (Wed Nov 27 03:43:34 2013, 美东)
+
+google面的是SRE
+
+电面是国人大哥，一些c语言的pointer问题，然后一道leetcode原题
+
+onsite1:
+1)combination,还是没dupliate的，要把结果保存起来，我说用linked list，因为是
+用c写，还要自己implement linkedlist， 略坑爹
+2) 就是很简单的统计两个string分别有多少个单独的letter
+
+onsite2:
+bst inorder iterator
+
+onsite3:
+一个文件，每行是rack_name + machine id，输出每个rack有多少个machine,按大小排
+序，我是先扫一遍存hashtable，再存进linkedlist再sort，这回没让我实现hashtable
+跟linkedlist了，不过要我把用过的api单独再declear一下，最后再写个mergesort
+
+onsite4:
+有很多个machine，要求检测哪些die了，要求parallel，就写了一个for loop创建若干
+个thread来执行任务，有点thread pool的感觉,用一个array来表示哪个machine被检测
+了与否,最后再写个检测的函数，要求socket programming，我就用tcp connect了一下
+，里面的各种api(pthread_thread, connect)我都不记得了，随便写写意思意思
+
+onsite5，system design
+1) 电话号码查询，其实就是hashtable，先一个machine再scale，consistent hash跟
+redundancy 
+2）如何提高disk 数据访问的latency，我给的答案有 1,cache, 2 seqencial visit 3
+, redundancy disks一起访问，用最快返回的数据 
+3）连不上server了怎么trouble shooting，这题坑太大了，就随便答答 
+
+HR的反馈是我虽然代码写的快但考虑的不够仔细，我估计是第四轮吧，呵呵
+
+
+vmware面的是 core storage
+
+电面1：
+前面问了些scheduler,mutex,tcp windows的问题，code题有3个
+1) memcopy，最简单的，不用考虑overlap
+2) 如何判断stack是往上还是往下增长，答案是call一个子函数，返回子函数的local 
+variable的address，然后跟母函数的local variable address比较
+3) bubble sort
+
+电面2：
+描述syscall怎么实现，argument存哪，在kernel里面怎么访问user land的地址
+device怎么与os communicate
+coding 题
+1）把{0,1,0,1,1}变成{0,0,1,1,1},这叫partition还是叫啥，好像leetcode有
+2）Flatten Binary Tree to Linked List
+
+onsite1:
+how to implement/walk through the process of syscall, signal, read a mounted
+file等等
+
+onsite2:
+1)
+detect loop in linked list
+give an array contain number from 1-10000, but just one num is missing, find
+the number
+answer: add the sum
+2)
+c struct padding/size, which the flag in compiler for optimization padding? 
+fpack-struct
+3)
+detect loop in linkedlist
+
+onsite3:
+1)
+implement barrier by mutex and semaphore(wake up one by one)
+我大概是这么写的;
+mutex.lock();
+count++;
+if (count == N) {
+    mutex.unlock();
+} else {
+    mutex.unlock();
+    semaphore.wait()
+}
+semaphore.signal();
+2)
+implement cognitional variable by semaphore and mutex，我不记得我怎么写了
+
+onsite4:
+写个malloc/free/calloc。。。
+how to sync caches in two machines, cache size is limited, said, machineA 
+want to write to cache, but maybe machineB don’t have enough cache. answer:
+need to flush cache in machineB(大概是这么个意思，没时间了，没仔细问）
+
+onsite5:
+spin lock fair solution? answer: use bitset to represent which thread 
+already held the lock before
+sync with two machine’s disk?
+answer: write ahead log first, if another machine also succeeded write to 
+log then write data to itself disks and clear log
