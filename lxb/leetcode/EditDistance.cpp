@@ -38,3 +38,43 @@ public:
         return S[n1][n2];
     }
 };
+
+Method 2 : space (O(n))
+	1. Trick: how to record the four value. upperLeft, upper, left.
+
+class Solution {
+public:
+    int minDistance(string word1, string word2) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        int m = word1.size();
+        int n = word2.size();
+        
+        vector<int> DP(n+1);
+        
+        //init
+        for (int i=0; i<=n; ++i){
+            DP[i] = i;
+        }
+        
+        //DP
+        for (int i=1; i<=m; i++)
+        {
+            int upperLeftBackup = DP[0];
+            DP[0] = i;
+        
+            for (int j=1; j<=n; j++)
+            {
+                int upperLeft = upperLeftBackup;
+                upperLeftBackup = DP[j];
+                
+                if (word1[i-1] == word2[j-1]){
+                    DP[j] = upperLeft;
+                }else{
+                    DP[j] = min( min(DP[j-1], DP[j]), upperLeft) + 1;  // DP[j-1]: left, DP[j] : upper, upperLeft: dp[i-1][j-1]
+                }
+            }
+        }
+        
+        return DP[n];
+    }
+};
