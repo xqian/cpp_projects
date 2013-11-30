@@ -11,6 +11,7 @@ A solution is ["cats and dog", "cat sand dog"].
 Discuss
 */
 
+Method 1: DP + DFS.
 class Solution {
 public:
     vector<string> wordBreak(string s, unordered_set<string> &dict) {
@@ -74,5 +75,117 @@ private:
                 oneSolution.pop_back();
             }
         }
+    }
+};
+
+Method 2: DP make a judge whether existing one solution only. DFS to find all the solution.No DP involved in DFS.
+class Solution {
+public:
+    vector<string> wordBreak(string s, unordered_set<string> &dict) {
+        int N = s.size();
+        vector<string> res;
+        if (!isBreakable(s, dict)) return res;
+        
+        vector<string> oneSol;
+        DFS(s, 0, oneSol, dict, res);
+        return res;
+    }
+    
+    
+private:
+    void DFS(const string &s, const int index, vector<string> &sol, unordered_set<string> &dict, vector<string> &res)
+    {
+        if (index == s.size())
+        {
+            addOneResult(sol,res);
+            return;
+        }
+        
+        for (int i=index; i<s.size(); i++)
+        {
+            // DP[i] start from 1.
+            if (dict.find(s.substr(index, i-index+1)) != dict.end()){
+                sol.push_back(s.substr(index,i-index+1));
+                DFS(s, i+1, sol, dict, res);
+                sol.pop_back();
+            }
+        }
+    }
+    
+    void addOneResult(const vector<string> &str, vector<string> &res){
+        string s;
+        for (auto &word:str)
+        {
+            s += word + ' ';
+        }
+        
+        s.resize(s.size()-1);
+        res.push_back(s);
+    }
+    
+    bool isBreakable(const string &s, const unordered_set<string> &dict)
+    {
+        vector<bool> DP(s.size()+1,false); //DP[i] : 1..i is breakable
+        DP[0] = true;
+        
+        for (int i=1; i<=s.size(); i++)
+        for (int j=0; j<i; j++){
+            if (DP[j] && dict.find(s.substr(j, i-j)) != dict.end()){
+                DP[i] = true;
+                break;
+            }    
+        }
+        
+        return DP[s.size()];
+    }
+};
+
+Method 3: Greatly simplified code. Removed push/pop with s+' ' stack variable.
+class Solution {
+public:
+    vector<string> wordBreak(string s, unordered_set<string> &dict) {
+        int N = s.size();
+        vector<string> res;
+        if (!isBreakable(s, dict)) return res;
+        
+        string oneSol;
+        DFS(s, 0, oneSol, dict, res);
+        return res;
+    }
+    
+    
+private:
+    void DFS(const string &s, const int index, string sol, unordered_set<string> &dict, vector<string> &res)
+    {
+        if (index == s.size())
+        {
+            sol.resize(sol.size()-1);
+            res.push_back(sol);
+            return;
+        }
+        
+        for (int i=index; i<s.size(); i++)
+        {
+            // DP[i] start from 1.
+            if (dict.find(s.substr(index, i-index+1)) != dict.end()){
+                DFS(s, i+1, sol + s.substr(index,i-index+1) + ' ', dict, res);
+            }
+        }
+    }
+    
+    bool isBreakable(const string &s, const unordered_set<string> &dict)
+    {
+        vector<bool> DP(s.size()+1,false); //DP[i] : 1..i is breakable
+        DP[0] = true;
+        
+        for (int i=1; i<=s.size(); i++)
+        for (int j=0; j<i; j++){
+            if (DP[j] && dict.find(s.substr(j, i-j)) != dict.end()){
+                DP[i] = true;
+                break;
+            }    
+        }
+        
+        return DP[s.size()];
     }
 };
