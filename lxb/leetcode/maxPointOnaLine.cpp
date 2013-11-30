@@ -3,6 +3,123 @@ http://oj.leetcode.com/problems/max-points-on-a-line/
  Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
 */
 
+Solution: y=kx+b;  double max:  numeric_limits<double>::max() 
+
+Solution: passed! Refered mitbbs online solution.
+
+double eps = 0.000000001;
+
+struct Line{
+    double slope;
+    double intercept;
+    
+    Line(Point p, Point q){
+        if(p.x == q.x){
+            slope = numeric_limits<double>::max();
+            intercept = p.x;
+        }else{
+            slope = (double)(p.y - q.y)/(double)(p.x - q.x);
+            intercept = p.y - slope * p.x;
+        }
+    }
+};
+
+struct Comp{
+    bool operator()( const Line &l1, const Line &l2){
+        if( l1.slope - l2.slope < -eps  )
+            return true;
+        if( l1.slope - l2.slope > eps)
+            return false;
+        
+        return (l1.intercept - l2.intercept < -eps);
+    }
+};
+
+bool fitLine(const Point& p,const Line &line){
+    if( abs(line.slope - numeric_limits<double>::max()) < eps )
+        return p.x == (int)line.intercept;
+    
+    return abs(p.x * line.slope + line.intercept -  p.y) < eps;
+}
+
+class Solution {
+public:
+    int maxPoints(vector<Point> &points) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        if(points.empty())  return 0;
+        
+        map<Line,int,Comp> table;
+        
+        for(int i = 0; i < points.size(); i++)
+            for(int j = i+1; j < points.size();j++){
+                
+                Line local(points[i],points[j]);
+                table[local]++;
+            }
+        
+        int maxcnt = 1;
+        auto maxLine = table.begin();
+        
+        for(auto it = table.begin(); it != table.end(); ++it )
+        {
+            if( it->second > maxcnt){
+                maxcnt = it->second;
+                maxLine = it;
+            }
+        }
+        
+        /* to handle duplicate point situation. eg: input (0,0), (0,0) */
+        maxcnt = 0;
+        
+        for(int i = 0; i < points.size();i++){
+            
+            if(fitLine(points[i],maxLine->first) )
+                maxcnt++;
+        }
+            
+        return maxcnt;
+    }
+};
+
+class Solution {
+public:
+    int maxPoints(vector<Point> &points) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        if(points.empty())  return 0;
+        
+        map<Line,int,Comp> table;
+        
+        for(int i = 0; i < points.size(); i++)
+            for(int j = i+1; j < points.size();j++){
+                
+                Line local(points[i],points[j]);
+                table[local]++;
+            }
+        
+        int maxcnt = 1;
+        auto maxLine = table.begin();
+        
+        for(auto it = table.begin(); it != table.end(); ++it )
+        {
+            if( it->second > maxcnt){
+                maxcnt = it->second;
+                maxLine = it;
+            }
+        }
+        
+        maxcnt = 0;
+        
+        for(int i = 0; i < points.size();i++){
+            if(fitLine(points[i],maxLine->first) )
+                maxcnt++;
+        }
+            
+        return maxcnt;
+    }
+};
+
 Try 1:
 Issue: what's the comparation function should overloaded for the hashFunction/map??
 
