@@ -61,3 +61,40 @@ public:
         return maxSum;
     }
 };
+
+
+/*Method 3: similar to 1, but get the result back. Kadane's algorithm per wiki */
+class Solution {
+public:
+    int maxSubArray(int A[], int n) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        // DP
+        assert(n>0);
+        
+        //Kadane's algorithm
+        int max_so_far = A[0];
+        int sum = A[0];
+        int begin = 0;
+        int begin_temp = 0;
+        int end;
+        
+        for (int i=1; i<n; i++)
+        {
+            if (sum > 0){
+                sum += A[i];
+            }else{
+                begin_temp = i;
+                sum = A[i];
+            }
+            
+            if (sum > max_so_far){
+                begin = begin_temp;
+                end = i;
+                max_so_far = sum;
+            }
+        }
+        
+        return max_so_far;
+    }
+};
+
