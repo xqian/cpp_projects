@@ -3,6 +3,7 @@ http://oj.leetcode.com/problems/divide-two-integers/
 /*
 Divide two integers without using multiplication, division and mod operator.
 */
+solution: 1. overflow, long long static conversion.
 class Solution {
 public:
     int divide(int dividend, int divisor) {
@@ -19,6 +20,7 @@ public:
         }
         
         long long dividendll = abs((long long)dividend);
+        //long long dividendll = abs(static_cast<long long>(dividend));
         long long divisorll = abs((long long)divisor);
         
         //when divisor is -1 and dividend is INT_MAX, return will be overflow.
@@ -26,8 +28,11 @@ public:
         
         while(dividendll >= divisorll)
         {
+	    // naming, abbrev.
             long long div = divisorll;
             long long count = 1;
+
+	    // tip: check condition.
             while ((div<<1) <= dividendll)
             {
                 div <<= 1;
