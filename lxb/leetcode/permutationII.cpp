@@ -7,7 +7,9 @@ For example,
 [1,1,2], [1,2,1], and [2,1,1].
 */
 
-Solution: using set to handle duplication.
+Solution: 1. using set to handle duplication.
+	  2. using existing vector to save space.
+	  3. DFS.
 
 class Solution {
 public:
@@ -21,7 +23,7 @@ public:
     
     void DFS(vector<vector<int> > &result, vector<int> &num, int d)
     {
-        if (d == num.size()-1){
+        if (d == num.size()){   // can also be d == num.size()-1.
             result.push_back(num);
             return;
         }
