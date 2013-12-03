@@ -14,6 +14,28 @@ A = [2,3,1,1,4], return true.
 A = [3,2,1,0,4], return false.
 */
 
+Solution: go through each level, find the farest level.
+class Solution {
+public:
+    bool canJump(int A[], int n) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        
+       int start = 0;
+       int end = 0;
+       
+       while (start <= end && end <n-1){
+           end = max(end, start+A[start]);
+           ++start;
+       }
+       
+       return end >= n - 1;
+    }
+};
+
+
+Method 2:
+
 /* Greedy + Bruce Force */
 class Solution {
 public:
