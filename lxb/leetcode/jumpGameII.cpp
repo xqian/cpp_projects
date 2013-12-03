@@ -14,6 +14,35 @@ The minimum number of jumps to reach the last index is 2. (Jump 1 step from inde
 
 */
 
+More simplier one:
+
+class Solution {
+public:
+    int jump(int A[], int n) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        if (n<2) return 0;
+        
+        int jumps = 0;
+        int start = 0;
+        while ( start < n ) 
+        {
+            jumps++;
+            if (start + A[start] >= n-1) return jumps;
+            
+            int mx = start;
+            for (int i=start + 1; i<=start+A[start]; ++i){
+                if (i + A[i] >= mx + A[mx] ){
+                    mx = i;   
+                }
+            }
+            
+            start = mx;
+        }
+    }
+};
+
+
 Method 1: Greedy
 
 class Solution {
