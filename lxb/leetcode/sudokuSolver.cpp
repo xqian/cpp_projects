@@ -27,6 +27,8 @@ public:
                     if (isValidSudoku(board, row, col) && solveSudoku(board)) return true;
                     board[row][col] = '.';
                 }
+		
+		//It means whatever number will always fail, so no solution. Important!!
                 return false;
             }
         }
