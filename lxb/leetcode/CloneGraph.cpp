@@ -12,6 +12,56 @@ http://oj.leetcode.com/problems/clone-graph/
 
 Solution: use hash to keep mapping relationship. Use set to record the visited. Code simplification.
 
+Method 0: DFS
+/**
+ * Definition for undirected graph.
+ * struct UndirectedGraphNode {
+ *     int label;
+ *     vector<UndirectedGraphNode *> neighbors;
+ *     UndirectedGraphNode(int x) : label(x) {};
+ * };
+ */
+class Solution {
+    typedef UndirectedGraphNode UGNode;
+    typedef unordered_map<UGNode *, UGNode *> HashTable;
+    typedef unordered_set<UGNode *> HashSet;
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        if (!node) return NULL;
+        HashTable mapTable;
+        HashSet visited;
+        
+        dfs(node,mapTable,visited);
+        
+        return mapTable[node];
+    }
+    
+private:
+    void dfs(UGNode *node, HashTable &mapTable, HashSet &visited){
+        cloneNode(node,mapTable);
+        visited.insert(node);
+        
+        for (auto nbor:node->neighbors){
+            cloneNode(nbor, mapTable);
+            mapTable[node]->neighbors.push_back(mapTable[nbor]);
+            
+            if (visited.find(nbor) == visited.end() && nbor != node){
+                dfs(nbor,mapTable,visited);
+            }
+        }
+    }
+    
+    void cloneNode(UGNode *src, HashTable &mapTable){
+        if (mapTable.find(src) == mapTable.end()){
+            mapTable[src] = new UGNode(src->label);
+        }
+    }
+};
+
+
+Method 1: BFS
+
 /**
  * Definition for undirected graph.
  * struct UndirectedGraphNode {
