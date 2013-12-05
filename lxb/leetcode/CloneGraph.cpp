@@ -1,10 +1,5 @@
 http://oj.leetcode.com/problems/clone-graph/
 
-Round2: Method 1 report wrong answer. Do you know why?
-
-Input:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5#5}
-Output:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5,5,5#5}
-Expected:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5#5}
 
 /**
  * Definition for undirected graph.
@@ -14,6 +9,68 @@ Expected:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5#5}
  *     UndirectedGraphNode(int x) : label(x) {};
  * };
  */
+
+Solution: use hash to keep mapping relationship. Use set to record the visited. Code simplification.
+
+/**
+ * Definition for undirected graph.
+ * struct UndirectedGraphNode {
+ *     int label;
+ *     vector<UndirectedGraphNode *> neighbors;
+ *     UndirectedGraphNode(int x) : label(x) {};
+ * };
+ */
+class Solution {
+    typedef UndirectedGraphNode UGNode;
+    
+public:
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+    // Note: The Solution object is instantiated only once and is reused by each test case.
+       
+       if (!node) return NULL;
+       
+       // BFS
+       queue<UGNode *> que;
+       unordered_map<UGNode*, UGNode *> map_table;
+       que.push(node);
+       set<UGNode *> visited;
+       
+       while (!que.empty()){
+            UGNode *curr = que.front();
+            que.pop();
+            visited.insert(curr);
+            cloneNode(curr,map_table);
+            
+            for (auto nbor:curr->neighbors){
+                cloneNode(nbor,map_table);
+                
+                if (visited.find(nbor) == visited.end() && nbor != curr){
+                    visited.insert(nbor);
+                    que.push(nbor);
+                }
+                
+                map_table[curr]->neighbors.push_back(map_table[nbor]);
+            }
+       }
+       
+       return map_table[node];
+     }
+     
+private:
+    void cloneNode(UGNode * src, unordered_map<UGNode *,UGNode *> &map_table)
+    {
+        if (map_table.find(src) != map_table.end()) return;
+        map_table[src] = new UGNode(src->label);
+    }
+};
+
+
+
+Round2: Method 1 report wrong answer. Do you know why?
+
+Input:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5#5}
+Output:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5,5,5#5}
+Expected:	{0,1,5#1,2,5#2,3#3,4,4#4,5,5#5}
 class Solution {
 public:
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
