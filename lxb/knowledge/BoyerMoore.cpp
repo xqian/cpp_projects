@@ -17,8 +17,9 @@ public:
     int M=pattern.size();
     int N=text.size();
 
-    int skip = 0;
+    int skip;
     for (int i=0;i<N - M; i+=skip){
+    	skip = 0;
 	for (int j=M-1; j>=0; --j){
 	   if (pattern[j] != text[i+j]){
 		//mismatch
