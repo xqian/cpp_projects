@@ -21,6 +21,38 @@ isMatch("ab", "?*") → true
 isMatch("aab", "c*a*b") → false
 */
 
+Method 0: passed.
+class Solution {
+public:
+    bool isMatch(const char *s, const char *p) {
+        const char *s_backup = NULL;
+        const char *p_backup = NULL;
+        
+        while(*s != '\0'){
+            if (*s == *p || *p == '?'){
+                ++s;
+                ++p;
+            }else if (*p == '*'){
+                while(*p == '*') ++p;
+                p_backup = p;
+                s_backup = s;
+            }else{
+                if (!s_backup) return false;
+                
+                s = ++s_backup;
+                p = p_backup;
+            }
+        }
+        
+        while (*p == '*') ++p;
+        
+        return *p == '\0' && *s == '\0';
+        
+    }
+};
+
+Method 2: dp. (Inspire from xin).
+
 Method 1: Recursive, timeout.   From https://github.com/soulmachine/leetcode
 
 Submission Result: Time Limit Exceeded
