@@ -53,3 +53,37 @@ public:
         ip = tmp;
     }
 };
+
+
+Method 2: cut branch by size. And use pass string by value (vs reference) to reduce code complexity.
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+     vector<string> res;
+     dfs(s,0,0,"",res);
+     return res;
+    }
+    
+    void dfs(const string &s, int index, int part, string ip, vector<string> &res){
+        //cut
+        if (s.size() - index > (4-part)*3) return;
+        if (s.size() - index < 4 - part) return;
+        
+        //base
+        if (index == s.size() && part == 4){
+            ip.resize(ip.size()-1);
+            res.push_back(ip); //remove last '.'
+            return;
+        }
+        
+        //extension
+        int num = 0;
+        for (int i=index;i<s.size();++i){
+            num = num * 10 + s[i] - '0';
+            if (num > 255) break;
+            
+            dfs(s,i+1, part+1, ip + s.substr(index,i-index+1) + '.',res);
+            if (num==0) break; //allow only one 0 in each part and not leading 0.
+        }
+     }
+};
