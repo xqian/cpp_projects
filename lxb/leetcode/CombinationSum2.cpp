@@ -17,6 +17,45 @@ A solution set is:
 [1, 1, 6] 
 */
 
+Method 2: use set to remove duplicate.
+class Solution {
+public:
+    vector<vector<int> > combinationSum2(vector<int> &num, int target) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        sort(num.begin(),num.end());
+        
+        set<vector<int> > results;
+        vector<int> oneResult;
+        
+        dfs(num, results,oneResult,target,0);
+        vector<vector<int> > res(results.begin(),results.end());
+        return res;
+    }
+    
+private:
+    void dfs(vector<int> &num, set<vector<int> > &results, vector<int> &oneResult, int gap, int index)
+    {
+        if (gap == 0){
+            results.insert(oneResult);
+            return;
+        }
+        
+        if (index == num.size()) return;
+        
+        // cut branch
+        if (num[index] > gap) return;
+        
+        // choose it.
+        oneResult.push_back(num[index]);
+        dfs(num,results,oneResult,gap-num[index],index+1);
+        
+        // or not choose it.
+        oneResult.pop_back();
+        dfs(num, results, oneResult, gap, index+1);
+    }
+};
+
+
 class Solution {
 public:
     vector<vector<int> > combinationSum2(vector<int> &num, int target) {
