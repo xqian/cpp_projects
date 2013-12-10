@@ -1,1 +1,14 @@
 *.out
+#test.cc#
+algorithm/misc_cpp_problems/a.exe.stackdump
+algorithm/misc_cpp_problems/core
+algorithm/misc_cpp_problems/out
+algorithm/misc_cpp_problems/a.exe
+simpleCppProjectTemplate/main.o
+simpleCppProjectTemplate/makefile.dep
+simpleCppProjectTemplate/main
+simpleCppProjectTemplate/main.dep
+cppProjectTemplate/proj/debug
+*.dep
+
+2
