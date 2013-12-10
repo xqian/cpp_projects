@@ -42,3 +42,32 @@ public:
         return result;
     }
 };
+
+Method 2:
+class Solution {
+public:
+    vector<vector<int> > subsets(vector<int> &S) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        sort(S.begin(), S.end());
+        
+        vector<int> path;
+        vector<vector<int> > res;
+        dfs(S,path,res,0);
+        return res;
+    }
+    
+private:
+    void dfs(vector<int> &S, vector<int> &path, vector<vector<int> >&res, int index){
+        res.push_back(path);
+         
+        //ext:
+        for (int i=index; i<S.size(); ++i){
+            //TODO: dup handle.
+            // if (i > index && S[i] == S[i-1]) continue;
+            
+            path.push_back(S[i]);
+            dfs(S,path,res,i+1);
+            path.pop_back();
+        }
+    }
+};
