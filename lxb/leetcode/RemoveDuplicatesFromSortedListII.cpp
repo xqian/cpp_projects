@@ -24,7 +24,7 @@ public:
         
         if (!head || !head->next) return head;
         
-        ListNode *dummy = new ListNode(-1);
+        ListNode dummy(0);
         
         // first round, count times
         unordered_map<int,int> hashTable;
@@ -40,7 +40,7 @@ public:
         }
         
         //second round, delete
-        ListNode *pre = dummy;
+        ListNode *pre = &dummy;
         while(head){
             if (hashTable[head->val] > 1){
                 //delete it.
@@ -54,6 +54,6 @@ public:
             }
         }
         
-        return dummy->next;
+        return dummy.next;
     }
 };

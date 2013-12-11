@@ -14,6 +14,40 @@ Return a deep copy of the list.
  *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
  * };
  */
+
+Method 1: recursive, suitable for interview. O(n) extra space.
+/**
+ * Definition for singly-linked list with a random pointer.
+ * struct RandomListNode {
+ *     int label;
+ *     RandomListNode *next, *random;
+ *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+ * };
+ */
+class Solution {
+    typedef RandomListNode Node;
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+       if (!head) return NULL;
+       map<Node *, Node *> mapTable;
+       return cloneList(head,mapTable);
+    };
+    
+    Node* cloneList(Node *head,map<Node *, Node *> &mapTable){
+        if (!head) return NULL;
+        
+        if (mapTable.find(head) != mapTable.end()) return mapTable[head];
+        
+        //clone it and recursively set link
+        mapTable[head] = new Node(head->label);
+        mapTable[head]->next = cloneList(head->next,mapTable);
+        mapTable[head]->random = cloneList(head->random,mapTable);
+        
+        return mapTable[head];
+    }
+};
+
+Method 2: O(1) extra space.
 class Solution {
 public:
     RandomListNode *copyRandomList(RandomListNode *head) {
