@@ -28,3 +28,29 @@ public:
         return low;
     }
 };
+
+Variation: double sqrt(double r)
+double sqrt(double r){
+	//special case
+	assert(r>=0);
+	if (r == 1) return 1.0;
+
+	//L: Left, or lower  R:right or higher.
+	double L = r>1?1:r;
+	double R = r>1?r:1;
+
+	double eplison=0.00001;
+
+	while (eplison<R-L){
+		double mid = L + (R-L)/2;
+		double m = mid * mid;
+		if (m > r){
+			R = m;
+		}else{
+			L = m;
+		}
+	}
+
+	return L;
+}
+
