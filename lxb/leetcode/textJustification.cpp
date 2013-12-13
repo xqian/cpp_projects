@@ -54,6 +54,60 @@ public:
     }
 };
 
+Method: passed. code is clearer to read, although not as simpler/neat as above.
+class Solution {
+public:
+    vector<string> fullJustify(vector<string> &words, int L) {
+        vector<string> res;
+        int i = 0, N = words.size();
+        while (i < N)
+        {
+            int length = words[i].size();
+            int j = i + 1;
+            while (j < N && length + words[j].size() + (j-i) <= L)
+                length += words[j++].size();
+            // build line
+            string s(words[i]);
+            bool isLastLine = (j == N);
+            bool oneWord = (j == i + 1);
+            
+            //corner case: one word
+            if (oneWord){
+                s.append(L-s.size(), ' ');
+                res.push_back(s);
+                i=j;
+                continue;
+            }
+            
+            //lastLine
+            if (isLastLine){
+                for (int k=i + 1; k<j ;++k){
+                    s.append(1,' ');
+                    s.append(words[k]);
+                }
+                
+                s.append(L-s.size(),' ');
+                res.push_back(s);
+                break;
+            }
+            
+            //normal case
+            int average = (L - length) / (j - i - 1);
+            int extra = (L - length) % (j - i - 1);
+            for (int k = i + 1; k < j; ++k) {
+                s.append(extra > 0 ? average + 1 : average, ' ');
+                s.append(words[k]);
+                extra--;
+            }
+            
+            // push line
+            res.push_back(s);
+            i = j;
+        }
+        return res;
+    }
+};
+
 
 Method 1: Issue: Memory Limit Exceeded
 
