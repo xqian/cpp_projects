@@ -12,12 +12,11 @@ Have you thought about this?
 Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
 
 If the integer's last digit is 0, what should the output be? ie, cases such as 10, 100.
-
 Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?
-
 Throw an exception? Good, but what if throwing an exception is not an option? You would then have to re-design the function (ie, add an extra parameter).
 */
 
+Method 1:
 class Solution {
 public:
     int reverse(int x) {
@@ -41,6 +40,34 @@ public:
         
         if (negative){
             reverse = reverse * (-1);
+        }
+        
+        return reverse;
+    }
+};
+
+Method 2: use long long to solve overflow more gracefully
+class Solution {
+public:
+    int reverse(int x) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        
+        // sign
+        bool negative = x > 0? false : true;
+        x = abs(x);
+        
+        long long reverse = 0;
+        while (x){
+            reverse = reverse*10 + x%10;
+            x = x/10;
+        }
+        
+        //overflow handle
+        reverse = negative?-reverse:reverse;
+        
+        if (reverse > INT_MAX || reverse < INT_MIN )
+        {
+            cout << "overflow happened" << endl;
         }
         
         return reverse;
