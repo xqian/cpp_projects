@@ -61,3 +61,54 @@ public:
         return result;
     }
 };
+
+Method 2: use subfunction to simplify logic:
+/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+class Solution {
+public:
+    
+    struct mycomp{
+        bool operator() (const Interval &l, const Interval &r)
+        {
+            return l.start < r.start;
+        }
+    };
+    
+    vector<Interval> merge(vector<Interval> &intervals) {
+        // sort interval by start
+        sort(intervals.begin(), intervals.end(), mycomp());
+        vector<Interval> res;
+        int len = intervals.size();
+        if (len==0) return res;
+        res.push_back(intervals[0]);
+        
+        for (int i=1; i<len; ++i){
+            Interval t;
+            if (mergeInterval(res.back(), intervals[i], t)){
+                res.back() = t;
+            }else{
+                res.push_back(intervals[i]);
+            }
+        }
+        
+        return res;
+    }
+    
+private:
+    bool mergeInterval(const Interval &a, const Interval &b, Interval &c)
+    {
+        if (b.start > a.end) return false;
+        
+        c.start = a.start;
+        c.end = max(a.end, b.end);
+        return true;
+    }
+};
