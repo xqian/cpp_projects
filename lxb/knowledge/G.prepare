@@ -37,6 +37,16 @@ dremel: interactive query and online analysis based on map reduce
 Product:
 Google glass, google driverless car, bough robot comp bump
 
+Protocol Optimization
+NetScaler provides a host of advanced technologies to optimize WAN protocols including TCP to improve the efficiency of the underlying network infrastructure, while still preserving 100 percent interoperability with all clients.
+NetScaler protocol optimizations include:
+TCP Westwood protocol support
+Significant amounts of web traffic are now originating from mobile users. Current TCP implementations rely on packet loss as an indicator of network congestion. Such methods cannot distinguish congestion-based loss from loss invoked by noisy links, overlapping channels and signal attenuation. As a consequence, traditional TCP often results in degraded performance. In order to obtain the ideal performance in a mobile network, TCP Westwood is used, resulting in higher average throughput and reduced dropped calls for mobile users.
+Multipath TCP
+Maintaining multiple client to server paths for the same TCP flow allows dynamic use of the most optimal path for data transfer and improves the end user experience for faster data transmissions. Mobile device communications, particularly those running LTE and other 4G networks, are especially enhanced. NetScaler now holds a dual TCP stack in between the service and client to help with client mobility and efficient access.
+SPDY protocol support
+SPDY is a new protocol introduced for lightweight HTTP processing, aimed at reducing bandwidth utilization and making Internet communications faster. Most browsers support SPDY today, but server/app infrastructures largely run on HTTP. NetScaler provides a gateway to transform messages from SPDY to HTTP, ensuring communication to clients and servers in HTTP as well as SPDY. This gateway feature enables L7 optimization, including full L7 content switching with analytics, and provides time for datacenters to move to SPDY support.
+
 Hadoop family?
 akamai 30% web traffic, CDN.
 HTTP Keep alive: SPDY(Speedy , by google) , one connection (60 seconds, 2 minutes), compressed header (gizp),SSL/HTTPS based on top of TCP. Reduce load time.
