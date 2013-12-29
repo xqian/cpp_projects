@@ -1,0 +1,64 @@
+G:
+Papers
+Big Table: (based on gfs, lock service chubby, leader choice paxos protocol, cluster management), atomic on row, access control per column. row (com.google.www reverse). partition as tablet. (locality), timestamp for version control. structured data. 
+Tablet location is stored in Meta data(similar to B+), but cached in each client + prefetch. So master is not bottle neck.
+Tablet assignment. tablet server grab a lock from chubby server, then create one lock file under chubby (for master to discovery live server). Master kept heart bit with tablet server, if lose connection, it will try to grab lock from chubby (to confirm whether chubby server done) and do the reassignment/add/delete properly.
+If master died, after a new master is up, it will grab master lock from chubby server, then connect tablet servers to get the mapping table, Then it will scan the META data and mark unassigned properly.
+Tabelet serving: for write operation. write-log (memtable and tablet log on disk). For read, go to SSTable directly).
+Block cache: low level cache. (sequential read)
+Bloom filter: most lookup for non-existent rows/cols do not need touch disk. Save bloom filter of SSTable in the memory.
+copy on write: save space, lazy write.(page)
+RPC
+
+GFS
+Assumption on requirement.
+application pattern: append write (rather than update, e.g.: data stream, scanning), big file size.component failure is normal (cpu,network,human, hardware, app,power,disk etc). Once written, it becomes read only. (e.g.: logging)
+failure: need monitor (detect, tolerate, recover)
+size: 100Mb+ , or GB
+append by multiple producer, read by consumer, need minimal synchronization overhead.
+Prefer high bandwidth and throughput for batch than low latency.
+	b. Interface (open/close, add/delete,read/write, append record/snapshot) 
+	c. Architecture: (chunk file saved in linux file system( linux itself has cache). one single master + multiple chunk server. chunk has 3+ copy for recovery. Master has metadata for chunk-location mapping. Client get metadata from master and cache it, then directly get data from chunk server. chunk size is 64Mb, each chunk is saved as file in Linux file system. Metadata(file and chunk name space, mapping from files to chin, mapping from chunk to location). Master didn’t keep persistent store for location information. Rather, it grabs information from distributed chunk server regularly and during startup. Master store file name with compressed prefix (trie).
+		c1. operation log: multiple copy, for replay and recovery. checkpoint
+		c2. chunk location: not persistent in master, grab from each chunk server.
+		c3. Consistent model: relaxed consistent model. log recorded the global total order operation. all clients see the same data, but it may not reflect what any one mutation has written. user may get less data or premature end of data (since append), but not dirty or outdated data.
+	d. System interactions: Leases and Mutation Order. Master assign on chunk lease to primary. The client asked master which one is primary and replica location, then cache it locally. The client push data to all the replica server which stored in internal LRU Cache and confirm finished(*data flow below). Then client send write request to primary, primary perform the record-append and  then primary ask each replica server to do the same thing. Only after that, it returned to client as success.
+		d1. Suppose client is pushing to S1 to S4. It pushed to S1 which is closer. Then S2 will forward to S3(closer) and then S4. Since S1->S2->S3->S4 is closed, it used every machine’s output bandwidth. Also pipe line don’t need S1 to get all data to start.  This help on atomic record append operation.
+		d2: snapshot. copy on write. Client request a snapshot to master. master revoke the primary, write into operation log. When Client request write and ask master, master notice  there is one more reference count on C, then create one new C’ and ask each replica create a new C’. Then start to use C’ for client to write.
+	e. Master operation: Namespace management and locking. It used trie to save all filename. There is no list operation on directory( compared with linux file system in ode). to write file /d1/d2/file, it get read lock /d1, /d1/d2/, and get write lock /d1/d2/file. Lock are required by level and lexicographically in the same level to avoid deadlock.
+	f. stale replica detection: chunk version number, assigned by master.
+	g. data integrity: checksum. store checksum information (per 64k) as meta data.
+	h: Metadata: chunk server: checksum and git version.  Master.  50~100MB size.ß
+
+Google paper:
+spanner (true time) sync: know unknown, used in Ads.
+dremel: interactive query and online analysis based on map reduce
+
+Product:
+Google glass, google driverless car, bough robot comp bump
+
+Hadoop family?
+akamai 30% web traffic, CDN.
+HTTP Keep alive: SPDY(Speedy , by google) , one connection (60 seconds, 2 minutes), compressed header (gizp),SSL/HTTPS based on top of TCP. Reduce load time.
+Server hint: server notify client to fetch new message.
+Server push: server initialized ..
+Hadoop, HDFS  (based on GFS,M/R)
+NoSQL: Cassandra: write performance (Facebook), MongoDB(document oriented, used by crasiglist, ebay,..,c++), HBase
+Pig, ZooKeeper
+Flume (source, sink, agent node, log stream handler)
+
+Questions to ask:
+What’s a typical working day for Engineer?
+Describe a little bit more engineer culture? 
+How can I best contribute to department?
+How do you think G kept continuous  innovation? (everywhere?)
+
+Keep learning, be curious, follow tech.
+CourseRA, algorithm, big data,…
+Work on small/side project with friends to explore other interesting. Social network/iOS openPath   Big data and cross domain (security log mining):flume, vpn, AD log, stream log (spunk..).
+Use open source online: track, confluence/jira  for document/bug tracking, github for version control, google site/DNS
+Apple: Delivery early, delivery often, iteratively
+Siterows.com  (Javescript + web2py + CSS)  (not used node.js)
+
+2PL protocol: 1. Expanding phase, locks are acquired, no locks released.  2. Shrinking phase locks are released, no locks are acquired.
+2PC: commit-request, commit phase.
