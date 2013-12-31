@@ -1,0 +1,1143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://discuss.leetcode.com/questions/241/valid-number -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[closed] Valid Number - LeetCode</title>
+<meta name="description" content="Validate if a given string is numeric.
+ 
+ 
+ Some examples:
+ &quot;0&quot; =&gt; true
+ &quot; 0.1 &quot; =&gt; true
+ &quot;abc&quot; =&gt; f...">
+<meta name="keywords" content="oj">
+<link rel="canonical" href="./[closed] Valid Number - LeetCode_files/[closed] Valid Number - LeetCode.html">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://discuss.leetcode.com/questions/241/valid-number?type=rss">
+
+<link rel="shortcut icon" href="http://discuss.leetcode.com/upfiles/favicon.ico">
+<link href="./[closed] Valid Number - LeetCode_files/A.style.css+prettify.css,Mcc.B0F8XuPaCX.css.pagespeed.cf.fse4wYRHbs.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./[closed] Valid Number - LeetCode_files/jquery-ui.css">
+<!--[if IE 6]>
+<style type="text/css">
+img, div, a { behavior: url(/m/default/media/iepngfix/iepngfix.htc) }
+</style>
+<![endif]-->
+<script type="text/javascript" async="" src="./[closed] Valid Number - LeetCode_files/ga.js"></script><script type="text/javascript" src="./[closed] Valid Number - LeetCode_files/jquery.min.js"></script>
+<script type="text/javascript">if(typeof jQuery=='undefined'){document.write('<script type="text/javascript" src="/m/default/media/js/jquery-1.7.1.min.js"><\/script>');}</script>
+<script type="text/javascript" src="./[closed] Valid Number - LeetCode_files/jquery-ui.min.js"></script>
+<script type="text/javascript">if(typeof jQuery.ui=='undefined'){document.write('<script type="text/javascript" src="/m/default/media/js/jquery-ui-1.8.17.min.js"><\/script>');}</script>
+<script type="text/javascript">//<![CDATA[
+var i18nLang='en';var appUrl='http://discuss.leetcode.com'
+var scriptUrl='/'
+var osqaSkin='default';var messages={username:'',confirm:"Are you sure?",yes:"Yes",no:"No",message:"Message:",cancel:"Cancel",close:"Close",ok:"Ok",matching_tags_url:"/matching_tags/",word:"word",words:"words",character:"character",characters:"characters"}
+//]]></script>
+<script type="text/javascript" src="./[closed] Valid Number - LeetCode_files/osqa.main.js.pagespeed.jm.HegxX6uIDq.js"></script>
+<script type="text/javascript" src="./[closed] Valid Number - LeetCode_files/prettify.js"></script>
+<script type="text/javascript">if(typeof prettyPrint=='undefined'){document.write('<script type="text/javascript" src="/m/default/media/js/prettify.js"><\/script>');}</script>
+<script type="text/javascript">//<![CDATA[
+function styleCode(node){var doPrettify=false;$("pre code",node).parent().each(function(){if(!$(this).hasClass("prettyprint")){$(this).addClass("prettyprint");doPrettify=true;}});if(doPrettify){prettyPrint();}}
+function initEditor(){var converter=Markdown.getSanitizingConverter();var help=function(){alert("Do you need help?");}
+var options={helpButton:{handler:help}};var editor=new Markdown.Editor(converter,"",options);editor.run();}
+//]]></script>
+<script type="text/javascript">$().ready(function(){$("#nav_questions").attr('className',"on");var answer_sort_tab="";if(answer_sort_tab){$("#"+answer_sort_tab).attr('className',"on");}
+$('#editor').TextAreaResizer();var display=true;var txt="[hide preview]";$('#pre-collapse').text(txt);$('#pre-collapse').bind('click',function(){txt=display?"[show preview]":"[hide preview]";display=!display;$('#previewer').toggle();$('#pre-collapse').text(txt);});styleCode($(document).body);initEditor();});function submitClicked(e,f){if(!(browserTester('chrome')||browserTester('safari'))){$("input.submit")[0].disabled=true;}
+window.removeEventListener('beforeunload',beforeUnload,true);if(f){f.submit();}}
+function beforeUnload(e){if($("textarea#editor")[0].value!=""){return yourWorkWillBeLost(e);}
+var commentBoxes=$("textarea.commentBox");for(var index=0;index<commentBoxes.length;index++){if(commentBoxes[index].value!=""){return yourWorkWillBeLost(e);}}}
+window.addEventListener('beforeunload',beforeUnload,true);</script>
+<noscript>
+&lt;style&gt;.comment.not_top_scorer{display:block}.comment-form-container{display:block}.div.comment-tools{display:none}&lt;/style&gt;
+</noscript>
+<link rel="search" type="application/opensearchdescription+xml" href="http://discuss.leetcode.com/opensearch.xml" title="LeetCode Search">
+</head>
+<body>
+<div class="wrapper">
+<!-- template header.html -->
+<div id="roof">
+<div id="logo">
+<a href="http://discuss.leetcode.com/">
+<img src="./[closed] Valid Number - LeetCode_files/xLeetCodeLogo.png.pagespeed.ic.oyzd5DREDk.png" title="back to home page" alt="Discuss - LeetCode logo">
+</a>
+</div>
+<div id="top">
+<a href="http://discuss.leetcode.com/account/signin/">login</a> <a href="http://discuss.leetcode.com/about/">about</a> <a href="http://discuss.leetcode.com/faq/">faq</a>
+</div>
+<div id="nav">
+<a id="nav_questions" class="on" href="http://discuss.leetcode.com/questions/" classname="on">Questions</a><a id="nav_tags" href="http://discuss.leetcode.com/tags/">Tags</a><a id="nav_users" href="http://discuss.leetcode.com/users/">Users</a><a id="nav_badges" href="http://discuss.leetcode.com/badges/">Badges</a><a id="nav_unanswered" href="http://discuss.leetcode.com/questions/unanswered/">Unanswered</a>
+<a id="nav_ask" href="http://discuss.leetcode.com/questions/ask/" class="special">Ask a Question</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="searchBar">
+<form action="http://discuss.leetcode.com/search/" method="get">
+<div>
+<input type="text" class="searchInput" value="" name="q" id="keywords">
+<input type="submit" name="Submit" value="Search" class="searchBtn">
+</div>
+<div class="options">
+<input id="type-question" type="radio" value="question" name="t" checked="checked"><label for="type-question">Questions</label>
+<input id="type-tag" type="radio" value="tag" name="t"><label for="type-tag">Tags</label>
+<input id="type-user" type="radio" value="user" name="t"><label for="type-user">Users</label>
+</div>
+</form>
+</div>
+<div id="announcement">
+<p style="font-size: 140%; color: red;">Old discuss is read-only now. Please go to <a href="http://oj.leetcode.com/discuss">New LeetCode Discuss</a> for your questions and answers!</p>
+<p style="font-size: 125%">User account in old discuss will not integrate to the new one, but <a href="http://oj.leetcode.com/discuss">new discuss</a> is integrated with <a href="http://oj.leetcode.com/">new online judge</a>, which means, if you already have an account in <a href="http://oj.leetcode.com/">new online judge</a>, you can access <a href="http://oj.leetcode.com/discuss">new discuss</a> immediately!</p>
+<p>If you want to ask for question relevant to the posts in old discuss, please copy content as part of your question, only old discuss link is <span style="color: red;">NOT ALLOWED!</span></p>
+<p style="font-size: 125%">Please <a href="http://oj.leetcode.com/discuss/faq">read the FAQ</a> in <a href="http://oj.leetcode.com/discuss">new LeetCode Discuss</a> to help yourself making the best use of Discuss!</p>
+</div>
+<!-- end template header.html -->
+<div id="wrapper">
+<div id="room">
+<div id="CALeft">
+<div class="headNormal">
+<h1><a href="./[closed] Valid Number - LeetCode_files/[closed] Valid Number - LeetCode.html">[closed] Valid Number</a></h1>
+</div>
+<div id="main-body" class="">
+<div id="askform">
+<table style="width:100%;" id="question-table">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-241-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/241/up/" rel="nofollow"> </a>
+<div id="post-241-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-241-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/241/down/" rel="nofollow"> </a>
+<a id="favorite-mark" title="mark/unmark this question as favorite (click again to cancel)" class="ajax-command favorite-mark " href="http://discuss.leetcode.com/mark_favorite/241/" rel="nofollow"> </a>
+<div id="favorite-count" class="favorite-count">
+1
+</div>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="question-body">
+<p>Validate if a given string is numeric.</p>
+<p>
+Some examples:<br>
+<code>"0"</code> =&gt; <code>true</code><br>
+<code>" 0.1 "</code> =&gt; <code>true</code><br>
+<code>"abc"</code> =&gt; <code>false</code><br>
+<code>"1 a"</code> =&gt; <code>false</code><br>
+<code>"2e10"</code> =&gt; <code>true</code><br>
+</p>
+<p><b>Note:</b> It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.
+</p>
+<a href="http://discuss.leetcode.com/questions/241/valid-number#" onclick="clearSavedJudgeCode();setJudge(241, &quot;[closed] Valid Number&quot;);openConsole(); return false;">» Solve this problem</a></div>
+<div id="question-tags" class="tags-container tags">
+<a href="http://discuss.leetcode.com/tags/oj/" class="post-tag tag-link-oj" title="see questions tagged &#39;oj&#39;" rel="tag">oj</a>
+</div>
+<div id="question-controls" class="post-controls">
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+asked
+<strong>02 Apr '12, 12:37</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/919654a5ee232e25b6d307a35d971c98" alt="1337c0d3r&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/1/1337c0d3r">1337c0d3r ♦♦</a><br>
+<span class="score" title="1166 karma"><span class="">1.2k</span></span><span title="10 Badges"><span class="badge1">●</span><span class="badgecount">10</span></span><span title="84 Badges"><span class="silver">●</span><span class="badgecount">84</span></span><span title="171 Badges"><span class="bronze">●</span><span class="badgecount">171</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="1337c0d3r has 2 accepted answers">2%</span>
+</p>
+</div>
+<div class="post-update-info post-update-info-edited">
+<p style="line-height:12px;">
+<a href="http://discuss.leetcode.com/revisions/241/">
+closed
+<strong>25 Oct, 06:41</strong>
+</a>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-241">
+</div>
+<div id="comment-tools-241" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-241-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+<div class="question-status" style="margin-bottom:15px">
+<h3>
+The question has been closed for the following reason "bulk close" by
+<a href="http://discuss.leetcode.com/users/1/1337c0d3r">1337c0d3r</a>
+25 Oct, 06:41
+</h3>
+</div>
+<hr>
+<div class="tabBar">
+<a name="sort-top"></a>
+<div class="headQuestions">
+8 Answers:
+</div>
+<div class="tabsA"><a href="http://discuss.leetcode.com/questions/241/valid-number?sort=oldest" title="oldest answers will be shown first">oldest</a><a href="http://discuss.leetcode.com/questions/241/valid-number?sort=newest" title="newest answers will be shown first">newest</a><a href="http://discuss.leetcode.com/questions/241/valid-number?sort=votes" class="on" title="most voted answers will be shown first">most voted</a></div>
+</div>
+<a name="768"></a>
+<div id="answer-container-768" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-768-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/768/up/" rel="nofollow"> </a>
+<div id="post-768-score" class="post-score" title="current number of votes">
+3
+</div>
+<a id="post-768-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/768/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<p>My solution using finite automata (inspired by <a href="http://discuss.leetcode.com/users/119/luckynoob"></a><a href="http://discuss.leetcode.com/users/119/luckynoob">@luckynoob</a>):<img src="./[closed] Valid Number - LeetCode_files/valid_number.png">
+</p><pre class="prettyprint"><code><span class="kwd">bool</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">enum</span><span class="pln"> </span><span class="typ">InputType</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        INVALID</span><span class="pun">,</span><span class="pln">    </span><span class="com">// 0</span><span class="pln">
+        SPACE</span><span class="pun">,</span><span class="pln">      </span><span class="com">// 1</span><span class="pln">
+        SIGN</span><span class="pun">,</span><span class="pln">       </span><span class="com">// 2</span><span class="pln">
+        DIGIT</span><span class="pun">,</span><span class="pln">      </span><span class="com">// 3</span><span class="pln">
+        DOT</span><span class="pun">,</span><span class="pln">        </span><span class="com">// 4</span><span class="pln">
+        EXPONENT</span><span class="pun">,</span><span class="pln">   </span><span class="com">// 5</span><span class="pln">
+        NUM_INPUTS  </span><span class="com">// 6</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> transitionTable</span><span class="pun">[][</span><span class="pln">NUM_INPUTS</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0</span><span class="pun">,</span><span class="pln">  </span><span class="lit">3</span><span class="pun">,</span><span class="pln">  </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 0</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">4</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 1</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 2</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 3</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 4</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">6</span><span class="pun">,</span><span class="pln">  </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 5</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 6</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 7</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">// next states for state 8</span><span class="pln">
+    </span><span class="pun">};</span><p></p><span class="pln">
+</span><pre class="prettyprint"><code><span class="kwd"><span class="kwd">int</span></span><span class="pln"><span class="pln"> state </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">0</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">while</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">!=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'\0'</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln">
+    </span></span><span class="typ"><span class="typ">InputType</span></span><span class="pln"><span class="pln"> inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> INVALID</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">isspace</span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s</span></span><span class="pun"><span class="pun">))</span></span><span class="pln"><span class="pln">
+        inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> SPACE</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'+'</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">||</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'-'</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+        inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> SIGN</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">isdigit</span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s</span></span><span class="pun"><span class="pun">))</span></span><span class="pln"><span class="pln">
+        inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> DIGIT</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'.'</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+        inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> DOT</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'e'</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">||</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">*</span></span><span class="pln"><span class="pln">s </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">'E'</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+        inputType </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> EXPONENT</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+
+    </span></span><span class="com"><span class="com">// Get next state from current state and input symbol</span></span><span class="pln"><span class="pln">
+    state </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> transitionTable</span></span><span class="pun"><span class="pun">[</span></span><span class="pln"><span class="pln">state</span></span><span class="pun"><span class="pun">][</span></span><span class="pln"><span class="pln">inputType</span></span><span class="pun"><span class="pun">];</span></span><span class="pln"><span class="pln">
+
+    </span></span><span class="com"><span class="com">// Invalid input</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">state </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">-</span></span><span class="lit"><span class="lit">1</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">return</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">false</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+    </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">++</span></span><span class="pln"><span class="pln">s</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln">
+</span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln">
+</span></span><span class="com"><span class="com">// If the current state belongs to one of the accepting (final) states,</span></span><span class="pln"><span class="pln">
+</span></span><span class="com"><span class="com">// then the number is valid</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">return</span></span><span class="pln"><span class="pln"> state </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">1</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">||</span></span><span class="pln"><span class="pln"> state </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">4</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">||</span></span><span class="pln"><span class="pln"> state </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">7</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">||</span></span><span class="pln"><span class="pln"> state </span></span><span class="pun"><span class="pun">==</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">8</span></span><span class="pun"><span class="pun">;</span></span><span class="pln">
+</span></code></pre><span class="pln">
+</span></code><p class="prettyprint"><code><span class="pun">}</span></code></p></pre><p></p>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/768/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>18 Jan, 08:21</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/f7216eea4477b20ee8f18a1636f714ac" alt="Lu-An%20Gong&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/162/lu-an-gong">Lu-An Gong</a><br>
+<span class="score" title="448 karma">448</span><span title="4 Badges"><span class="silver">●</span><span class="badgecount">4</span></span><span title="6 Badges"><span class="bronze">●</span><span class="badgecount">6</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="Lu-An Gong has one accepted answer">7%</span>
+</p>
+</div>
+<div class="post-update-info post-update-info-edited">
+<p style="line-height:12px;">
+<a href="http://discuss.leetcode.com/revisions/768/">
+edited
+<strong>18 Jan, 08:47</strong>
+</a>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-768">
+<a name="774"></a>
+<div class="comment" id="comment-774">
+<div id="post-774-score" class="comment-score"></div>
+<div class="comment-text"><p>Very nice diagram! Now I wish I had taken the class in finite automata.</p></div>
+<div class="comment-info" id="comment-774-info">
+<span class="comment-age">(18 Jan, 21:53)</span>
+<a class="comment-user userinfo" href="http://discuss.leetcode.com/users/1/1337c0d3r">1337c0d3r ♦♦</a>
+<img class="gravatar" width="18" height="18" src="./[closed] Valid Number - LeetCode_files/919654a5ee232e25b6d307a35d971c98(1)" alt="1337c0d3r&#39;s gravatar image">
+</div>
+</div>
+<a name="790"></a>
+<div class="comment" id="comment-790">
+<div id="post-790-score" class="comment-score"></div>
+<div class="comment-text"><p>Much better !</p></div>
+<div class="comment-info" id="comment-790-info">
+<span class="comment-age">(20 Jan, 16:02)</span>
+<a class="comment-user userinfo" href="http://discuss.leetcode.com/users/119/luckynoob">luckynoob</a>
+<img class="gravatar" width="18" height="18" src="./[closed] Valid Number - LeetCode_files/904aef3cbc757f676112f10b6310b389" alt="luckynoob&#39;s gravatar image">
+</div>
+</div>
+</div>
+<div id="comment-tools-768" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-768-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="480"></a>
+<div id="answer-container-480" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-480-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/480/up/" rel="nofollow"> </a>
+<div id="post-480-score" class="post-score" title="current number of votes">
+2
+</div>
+<a id="post-480-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/480/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<pre class="prettyprint"><code><span class="kwd">bool</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> mat</span><span class="pun">[</span><span class="lit">11</span><span class="pun">][</span><span class="lit">7</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// false</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">2</span><span class="pln"> </span><span class="pun">,</span><span class="lit">3</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">1</span><span class="pln"> </span><span class="pun">,</span><span class="lit">4</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 1</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">2</span><span class="pln"> </span><span class="pun">,</span><span class="lit">5</span><span class="pln"> </span><span class="pun">,</span><span class="lit">6</span><span class="pln"> </span><span class="pun">,</span><span class="lit">9</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="com">// 2</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">5</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 3</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">2</span><span class="pln"> </span><span class="pun">,</span><span class="lit">3</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 4</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">5</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">6</span><span class="pln"> </span><span class="pun">,</span><span class="lit">9</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="com">// 5</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">7</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">8</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 6</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">7</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">9</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="com">// 7</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">7</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 8</span><span class="pln">
+                      </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">9</span><span class="pln"> </span><span class="pun">,</span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="com">// 9</span><span class="pln">
+                      </span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pln"> </span><span class="com">// 10</span><span class="pln">
+                    </span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> stat </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">int</span><span class="pln"> type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="str">'0'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="str">'9'</span><span class="pun">)</span><span class="pln">
+            type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln">
+            type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'e'</span><span class="pun">)</span><span class="pln">
+            type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">' '</span><span class="pun">)</span><span class="pln">
+            type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'+'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'-'</span><span class="pun">)</span><span class="pln">
+            type </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">stat </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        stat </span><span class="pun">=</span><span class="pln"> mat</span><span class="pun">[</span><span class="pln">stat</span><span class="pun">][</span><span class="pln">type</span><span class="pun">];</span><span class="pln">
+        i</span><span class="pun">++;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    stat </span><span class="pun">=</span><span class="pln"> mat</span><span class="pun">[</span><span class="pln">stat</span><span class="pun">][</span><span class="lit">6</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">stat </span><span class="pun">==</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/480/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>31 Dec '12, 18:50</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/904aef3cbc757f676112f10b6310b389(1)" alt="luckynoob&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/119/luckynoob">luckynoob</a><br>
+<span class="score" title="547 karma">547</span><span title="4 Badges"><span class="silver">●</span><span class="badgecount">4</span></span><span title="6 Badges"><span class="bronze">●</span><span class="badgecount">6</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="luckynoob has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-480">
+<a name="760"></a>
+<div class="comment" id="comment-760">
+<div id="post-760-score" class="comment-score"></div>
+<div class="comment-text"><p>Your code looks quite elegant, but it's a little bit difficult to understand. Could you give some explanation about your transition table, or could you post your transition graph here?</p></div>
+<div class="comment-info" id="comment-760-info">
+<span class="comment-age">(18 Jan, 01:31)</span>
+<a class="comment-user userinfo" href="http://discuss.leetcode.com/users/162/lu-an-gong">Lu-An Gong</a>
+<img class="gravatar" width="18" height="18" src="./[closed] Valid Number - LeetCode_files/f7216eea4477b20ee8f18a1636f714ac(1)" alt="Lu-An%20Gong&#39;s gravatar image">
+</div>
+</div>
+</div>
+<div id="comment-tools-480" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-480-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="1916"></a>
+<div id="answer-container-1916" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-1916-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/1916/up/" rel="nofollow"> </a>
+<div id="post-1916-score" class="post-score" title="current number of votes">
+2
+</div>
+<a id="post-1916-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/1916/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<p>Well, if we are allowed to use regex, this can be done in one line code. The running time depends on how the compile parses regex though.</p>
+<pre class="prettyprint"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">matches</span><span class="pun">(</span><span class="str">"^\\s*[+-]?(\\d+|\\d*\\.\\d+|\\d+\\.\\d*)([eE][+-]?\\d+)?\\s*$"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/1916/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>27 Jun, 14:02</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/bd4f58c602d4bc3686eb9e5e4a552244" alt="n00tc0d3r&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/165/n00tc0d3r">n00tc0d3r</a><br>
+<span class="score" title="326 karma">326</span><span title="2 Badges"><span class="silver">●</span><span class="badgecount">2</span></span><span title="5 Badges"><span class="bronze">●</span><span class="badgecount">5</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="n00tc0d3r has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-1916">
+</div>
+<div id="comment-tools-1916" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-1916-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="1672"></a>
+<div id="answer-container-1672" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-1672-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/1672/up/" rel="nofollow"> </a>
+<div id="post-1672-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-1672-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/1672/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<pre class="prettyprint"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">==</span><span class="kwd">null</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">char</span><span class="pun">[]</span><span class="pln"> sArr </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">trim</span><span class="pun">().</span><span class="pln">toCharArray</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">sArr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">==</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">sArr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">==</span><span class="lit">1</span><span class="pun">&amp;&amp;!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">sArr</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="kwd">boolean</span><span class="pln"> decimalFound </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">boolean</span><span class="pln"> eFound </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">end</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> sArr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln">i</span><span class="pun">&lt;=</span><span class="kwd">end</span><span class="pun">;</span><span class="pln">i</span><span class="pun">++){</span><span class="pln">        
+        </span><span class="kwd">char</span><span class="pln"> nextChar </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">&gt;=</span><span class="kwd">end</span><span class="pun">?</span><span class="str">'x'</span><span class="pun">:</span><span class="pln">sArr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+        </span><span class="kwd">char</span><span class="pln"> prevChar </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">&lt;=</span><span class="lit">0</span><span class="pun">?</span><span class="str">'x'</span><span class="pun">:</span><span class="pln">sArr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">-</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+        </span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">sArr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]){</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'+'</span><span class="pun">:</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'-'</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">prevChar</span><span class="pun">!=</span><span class="str">'e'</span><span class="pun">&amp;&amp;</span><span class="pln">i</span><span class="pun">!=</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">prevChar</span><span class="pun">==</span><span class="str">'e'</span><span class="pun">&amp;&amp;</span><span class="pln">i</span><span class="pun">==</span><span class="kwd">end</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="lit">0</span><span class="pun">&amp;&amp;</span><span class="pln">nextChar</span><span class="pun">==</span><span class="str">'e'</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">decimalFound </span><span class="pun">||</span><span class="pln"> eFound</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&gt;=</span><span class="kwd">end</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> i</span><span class="pun">&lt;=</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">prevChar</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">nextChar</span><span class="pun">))</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            decimalFound </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'e'</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">eFound</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">prevChar</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">nextChar</span><span class="pun">)</span><span class="pln">
+                </span><span class="pun">&amp;&amp;</span><span class="pln">nextChar</span><span class="pun">!=</span><span class="str">'-'</span><span class="pun">||</span><span class="pln"> </span><span class="kwd">end</span><span class="pun">==</span><span class="pln">i </span><span class="pun">||</span><span class="pln"> i</span><span class="pun">==</span><span class="lit">0</span><span class="pun">){</span><span class="pln">
+                        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">                        
+            </span><span class="pun">}</span><span class="pln">
+            eFound </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">' '</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">default</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(!</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">sArr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/1672/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>09 May, 12:18</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/8923e5a032b73975e9e41999338f3a8b" alt="Tanu&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/560/tanu">Tanu</a><br>
+<span class="score" title="21 karma">21</span><span title="2 Badges"><span class="bronze">●</span><span class="badgecount">2</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="Tanu has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-1672">
+</div>
+<div id="comment-tools-1672" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-1672-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="1699"></a>
+<div id="answer-container-1699" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-1699-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/1699/up/" rel="nofollow"> </a>
+<div id="post-1699-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-1699-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/1699/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<p>private:</p>
+<pre class="prettyprint"><code><span class="kwd">enum</span><span class="pln"> </span><span class="typ">Token</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Null</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Sign</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Num</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">,</span><span class="pln"> E</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Space</span><span class="pln"> </span><span class="pun">};</span><span class="pln">
+</span><span class="kwd">bool</span><span class="pln"> isDigit</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> c </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="str">'0'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> c </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="str">'9'</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">bool</span><span class="pln"> isSpace</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="str">' '</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'\t'</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></code></pre>
+<p>public:</p>
+<pre class="prettyprint"><code><span class="kwd">bool</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Start typing your C/C++ solution below</span><span class="pln">
+    </span><span class="com">// DO NOT write int main() function</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">bool</span><span class="pln"> hasNum </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> pointCnt </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> eCnt </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="typ">Token</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Null</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> hasNum </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">preToken</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Null</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isSpace</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'-'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'+'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Sign</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Point</span><span class="pun">;</span><span class="pln"> pointCnt</span><span class="pun">++;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])){</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Sign</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Point</span><span class="pun">;</span><span class="pln"> pointCnt</span><span class="pun">++;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])){</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'e'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="pln">E</span><span class="pun">;</span><span class="pln"> eCnt</span><span class="pun">++;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">eCnt </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Point</span><span class="pun">;</span><span class="pln"> pointCnt</span><span class="pun">++;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isSpace</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Space</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Point</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'e'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'E'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> isSpace</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">hasNum</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isSpace</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Space</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="pln">E</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="pln">E</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isDigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'-'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'+'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> preToken </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Sign</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Space</span><span class="pun">:</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isSpace</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        i</span><span class="pun">++;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pointCnt </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> eCnt </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">preToken </span><span class="pun">==</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Num</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> preToken </span><span class="pun">==</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Space</span><span class="pln"> </span><span class="pun">||</span><span class="pln">
+        </span><span class="pun">(</span><span class="pln">preToken </span><span class="pun">==</span><span class="pln"> </span><span class="typ">Token</span><span class="pun">::</span><span class="typ">Point</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> hasNum</span><span class="pun">))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/1699/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>16 May, 02:00</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/3af7635d227367c0a5e4d532f82e0245" alt="sherryweihao&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/600/sherryweihao">sherryweihao</a><br>
+<span class="score" title="21 karma">21</span><span title="4 Badges"><span class="bronze">●</span><span class="badgecount">4</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="sherryweihao has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-1699">
+</div>
+<div id="comment-tools-1699" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-1699-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="2071"></a>
+<div id="answer-container-2071" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-2071-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/2071/up/" rel="nofollow"> </a>
+<div id="post-2071-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-2071-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/2071/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<pre class="prettyprint"><code><span class="kwd">enum</span><span class="pln"> input_type</span><span class="pun">{</span><span class="pln">
+    e_digit</span><span class="pun">,</span><span class="pln"> </span><span class="com">//1</span><span class="pln">
+    e_point</span><span class="pun">,</span><span class="pln"> </span><span class="com">//2</span><span class="pln">
+    e_exponent</span><span class="pun">,</span><span class="pln"> </span><span class="com">//3</span><span class="pln">
+    e_sign</span><span class="pun">,</span><span class="pln"> </span><span class="com">//4</span><span class="pln">
+    e_space</span><span class="pun">,</span><span class="pln"> </span><span class="com">//5</span><span class="pln">
+    e_invalid</span><span class="pun">,</span><span class="pln"> </span><span class="com">//6</span><span class="pln">
+    ENUM_SIZE </span><span class="com">//</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+input_type get_value</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> s</span><span class="pun">){</span><span class="pln">
+    </span><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">' '</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> e_space</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> e_point</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'e'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> e_exponent</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'-'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> e_sign</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'+'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> e_sign</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">default</span><span class="pun">:{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">&gt;=</span><span class="str">'0'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">&lt;=</span><span class="str">'9'</span><span class="pun">)</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> e_digit</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> e_invalid</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">bool</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Start typing your C/C++ solution below</span><span class="pln">
+    </span><span class="com">// DO NOT write int main() function</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> transition_table</span><span class="pun">[][</span><span class="pln">ENUM_SIZE</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">4</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 0:begin</span><span class="pln">
+         </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">2</span><span class="pun">,</span><span class="pln">  </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 1:digit</span><span class="pln">
+         </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 2:pointed with num front</span><span class="pln">
+         </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 3:exponented with num front</span><span class="pln">
+         </span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 4:signed</span><span class="pln">
+        </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 5:space after num</span><span class="pln">
+         </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 6:pointed with out num front</span><span class="pln">
+         </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">9</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 7:exponented with out num</span><span class="pln">
+         </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">  </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln">     </span><span class="com">//state 8:exponented signed</span><span class="pln">
+         </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pln">      </span><span class="com">//state 9:exponented signed with out num after</span><span class="pln">
+        </span><span class="com">//stat -1:invalid</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">bool</span><span class="pln"> final_state</span><span class="pun">[]={</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> state </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(*</span><span class="pln">s </span><span class="pun">!=</span><span class="pln"> </span><span class="str">'\0'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> state </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">){</span><span class="pln">
+        input_type </span><span class="kwd">in</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> get_value</span><span class="pun">(*(</span><span class="pln">s</span><span class="pun">++));</span><span class="pln">
+        state </span><span class="pun">=</span><span class="pln"> transition_table</span><span class="pun">[</span><span class="pln">state</span><span class="pun">][</span><span class="kwd">in</span><span class="pun">];</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">state </span><span class="pun">==</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">!</span><span class="pln">final_state</span><span class="pun">[</span><span class="pln">state</span><span class="pun">])</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>more readable finite automata</p>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/2071/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>22 Jul, 09:33</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/2af40257db6459d8076a011f6f5439db" alt="snakeling&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/911/snakeling">snakeling</a><br>
+<span class="score" title="1 karma">1</span><span title="1 Badges"><span class="bronze">●</span><span class="badgecount">1</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="snakeling has no accepted answers">0%</span>
+</p>
+</div>
+<div class="post-update-info post-update-info-edited">
+<p style="line-height:12px;">
+<a href="http://discuss.leetcode.com/revisions/2071/">
+edited
+<strong>22 Jul, 09:37</strong>
+</a>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-2071">
+</div>
+<div id="comment-tools-2071" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-2071-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="2809"></a>
+<div id="answer-container-2809" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-2809-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/2809/up/" rel="nofollow"> </a>
+<div id="post-2809-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-2809-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/2809/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<p>class Solution {
+public:
+bool isNumKernel(string&amp;&amp; s, bool num, bool point)
+{
+if (s.size()==1)
+{
+if(isdigit(s[0]) || (s[0]=='.' &amp;&amp; num &amp;&amp; !point)) return true;
+else return false;
+}</p>
+<pre class="prettyprint"><code><span class="pln">    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isdigit</span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]))</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> isNumKernel</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> point</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]==</span><span class="str">'.'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">point</span><span class="pun">)</span><span class="pln">   </span><span class="kwd">return</span><span class="pln"> isNumKernel</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> num</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">bool</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Note: The Solution object is instantiated only once and is reused by each test case.</span><span class="pln">
+    stringstream numCan</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">string</span><span class="pln"> first</span><span class="pun">,</span><span class="pln"> second</span><span class="pun">;</span><span class="pln">
+    numCan </span><span class="pun">&gt;&gt;</span><span class="pln"> first </span><span class="pun">&gt;&gt;</span><span class="pln"> second</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">first</span><span class="pun">.</span><span class="pln">empty</span><span class="pun">()</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">!</span><span class="pln">second</span><span class="pun">.</span><span class="pln">empty</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="kwd">int</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="typ">size_t</span><span class="pln"> epos </span><span class="pun">=</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'e'</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">epos </span><span class="pun">==</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">size</span><span class="pun">()-</span><span class="lit">1</span><span class="pun">)</span><span class="pln">     </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">epos </span><span class="pun">&lt;=</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">size</span><span class="pun">()-</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">string</span><span class="pln"> tmp </span><span class="pun">=</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="pln">epos</span><span class="pun">+</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">int</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> tmp</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">len</span><span class="pun">==</span><span class="lit">1</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">isdigit</span><span class="pun">(</span><span class="pln">tmp</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]))</span><span class="pln">     </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">isdigit</span><span class="pun">(</span><span class="pln">tmp</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tmp</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]!=</span><span class="str">'+'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> tmp</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]!=</span><span class="str">'-'</span><span class="pun">))</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">len</span><span class="pun">;</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">isdigit</span><span class="pun">(</span><span class="pln">tmp</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]))</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    second </span><span class="pun">=</span><span class="pln"> first</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> epos</span><span class="pun">);</span><span class="pln">
+    len </span><span class="pun">=</span><span class="pln"> second</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">len </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln">   </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">len</span><span class="pun">==</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> isdigit</span><span class="pun">(</span><span class="pln">second</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])?</span><span class="kwd">true</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">second</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]==</span><span class="str">'+'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> second</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]==</span><span class="str">'-'</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> isNumKernel</span><span class="pun">(</span><span class="pln">second</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">second</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> isNumKernel</span><span class="pun">(</span><span class="pln">second</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isdigit</span><span class="pun">(</span><span class="pln">second</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> isNumKernel</span><span class="pun">(</span><span class="pln">second</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> 
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>};</p>
+<p>We can focus on the effectual string by using sstream. Dividing the string into 2 parts by 'e', the right part (if existed) should contain only sign and digits, while the left part should be a float.</p>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/2809/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>09 Oct, 21:12</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/42f31042354a5a5c55f7f689483569c9" alt="sangoblin&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/1479/sangoblin">sangoblin</a><br>
+<span class="score" title="11 karma">11</span><span title="1 Badges"><span class="bronze">●</span><span class="badgecount">1</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="sangoblin has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-2809">
+</div>
+<div id="comment-tools-2809" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-2809-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<a name="2986"></a>
+<div id="answer-container-2986" class="answer ">
+<table style="width:100%;">
+<tbody><tr>
+<td style="width:30px;vertical-align:top">
+<div class="vote-buttons">
+<a id="post-2986-upvote" title="This post is useful (click again to undo)" class="ajax-command post-vote up " href="http://discuss.leetcode.com/vote/2986/up/" rel="nofollow"> </a>
+<div id="post-2986-score" class="post-score" title="current number of votes">
+0
+</div>
+<a id="post-2986-downvote" title="This post is not useful (click again to undo)" class="ajax-command post-vote down" href="http://discuss.leetcode.com/vote/2986/down/" rel="nofollow"> </a>
+</div>
+</td>
+<td>
+<div class="item-right">
+<div class="answer-body">
+<p>Ugly solution. Submitted and revised 10 time before accepted ...</p>
+<pre class="prettyprint"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Solution</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isNumber</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">==</span><span class="kwd">null</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()==</span><span class="lit">0</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> digitPointCnt </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  i</span><span class="pun">++;</span><span class="pln">  </span><span class="com">// ignore prevailing spaces</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'-'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'+'</span><span class="pun">))</span><span class="pln">  i</span><span class="pun">++;</span><span class="pln">  </span><span class="com">// - or + sign</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'.'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        i</span><span class="pun">++;</span><span class="pln">   </span><span class="com">// allow starting digit point</span><span class="pln">
+        digitPointCnt</span><span class="pun">++;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">))</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">  </span><span class="com">// start with non-num</span><span class="pln">
+    i </span><span class="pun">=</span><span class="pln"> nextNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">  
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">  </span><span class="com">// all numerics</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> allSpaces</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">  </span><span class="com">// check trailing spaces</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'.'</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+        digitPointCnt</span><span class="pun">++;</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">digitPointCnt</span><span class="pun">&gt;</span><span class="lit">1</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">   </span><span class="com">// two digit points are invalid</span><span class="pln">
+        i</span><span class="pun">++;</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">   </span><span class="com">// allow trailing digit point</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> allSpaces</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'e'</span><span class="pun">||</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'E'</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> validExp</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">);</span><span class="pln">  </span><span class="com">// allow .e</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">))</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">  </span><span class="com">// digit point followed by non-num</span><span class="pln">
+        i </span><span class="pun">=</span><span class="pln"> nextNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln"> 
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">  </span><span class="com">// all nums</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> allSpaces</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">  </span><span class="com">// check trailing spaces</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'e'</span><span class="pun">||</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'E'</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> validExp</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">  </span><span class="com">// any other characters are invalid</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'e'</span><span class="pun">||</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'E'</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> validExp</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isNonNum</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&gt;=</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)&lt;</span><span class="str">'0'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)&gt;</span><span class="str">'9'</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">// find next non-num position</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> nextNonNum</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)&gt;=</span><span class="str">'0'</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)&lt;=</span><span class="str">'9'</span><span class="pun">)</span><span class="pln">  i</span><span class="pun">++;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">// check trailing spaces</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> allSpaces</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  i</span><span class="pun">++;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln"> 
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">        
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">// check valid exponential num</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> validExp</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'-'</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">'+'</span><span class="pun">))</span><span class="pln">  i</span><span class="pun">++;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">))</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    i </span><span class="pun">=</span><span class="pln"> nextNonNum</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">())</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">  </span><span class="com">// all numerics</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">s</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)==</span><span class="str">' '</span><span class="pun">)</span><span class="pln">  </span><span class="kwd">return</span><span class="pln"> allSpaces</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln">i</span><span class="pun">);</span><span class="pln">  </span><span class="com">// check trailing spaces</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>}</p>
+</div>
+<div class="answer-controls post-controls">
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.leetcode.com/answer_link/2986/">link</a></span>
+</div>
+<div class="post-update-info-container">
+<div class="post-update-info post-update-info-user">
+<p style="line-height:12px;">
+answered
+<strong>20 Oct, 20:04</strong>
+</p>
+<img class="gravatar" width="32" height="32" src="./[closed] Valid Number - LeetCode_files/2ad52bb215a8edd8ef71dd75d4dc3ef5" alt="swang511&#39;s gravatar image">
+<p><a href="http://discuss.leetcode.com/users/895/swang511">swang511</a><br>
+<span class="score" title="11 karma">11</span><span title="3 Badges"><span class="bronze">●</span><span class="badgecount">3</span></span><br>
+<span title="Rate of the user&#39;s accepted answers" class="accept_rate">accept rate:</span>
+<span title="swang511 has no accepted answers">0%</span>
+</p>
+</div>
+</div>
+<div class="comments-container" id="comments-container-2986">
+</div>
+<div id="comment-tools-2986" class="comment-tools">
+</div>
+<div class="clear"></div>
+<div id="comment-2986-form-container" class="comment-form-container">
+</div>
+<div class="clear"></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paginator-container-left">
+</div>
+<form id="fmanswer" action="http://discuss.leetcode.com/questions/241/answer/" method="post"><div style="display:none;"><input type="hidden" id="csrfmiddlewaretoken" name="csrfmiddlewaretoken" value="9bf115d0d48d0d3230969921f8929083"></div>
+<div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="9bf115d0d48d0d3230969921f8929083"></div>
+<div style="clear:both">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div id="CARight">
+<div class="boxC" id="subscription_box">
+<h3 class="subtitle">Follow this question</h3><strong>By Email:</strong><p>Once you sign in you will be able to subscribe for any updates here</p><strong>By RSS:</strong><p><a class="feed-icon" style="background-image:url(&#39;/m/default/media/images/feed-icon-small.png&#39;);" href="http://discuss.leetcode.com/questions/241/valid-number?type=rss" title="subscribe to answers"></a>
+Answers
+</p><p><a class="feed-icon" style="background-image:url(&#39;/m/default/media/images/feed-icon-small.png&#39;);" href="http://discuss.leetcode.com/questions/241/valid-number?type=rss&comments=yes" title="subscribe to comments and answers"></a>
+Answers and Comments
+</p>
+</div>
+<div class="boxC" id="editor_side_bar">
+<p class="subtitle darkred">Markdown Basics</p>
+<ul class="list-item">
+<li>
+*italic* or _italic_
+</li>
+<li>
+**bold** or __bold__
+</li>
+<li>
+<i>Indent</i> code by 4 spaces.
+</li>
+<li>
+<b>link</b>:[text](http://url.com/ "Title")
+</li>
+<li>
+<b>image</b>?![alt text](/path/img.jpg "Title")
+</li>
+<li>
+numbered list:
+1. Foo
+2. Bar
+</li>
+<li>
+to add a line break simply add two spaces to where you would like the new line to be.
+</li>
+<li>
+basic HTML tags are also supported
+</li>
+</ul>
+<p class="info-box-follow-up-links">
+<a href="http://discuss.leetcode.com/markdown_help/" target="_blank">learn more about Markdown </a>
+</p>
+</div>
+<div id="sidebar-upper" class="boxC">
+<div class="body">
+<h2>Welcome to LeetCode</h2>
+<p style="font-size: 125%">All LeetCoders,</p>
+<p style="font-size: 125%">Welcome to the LeetCode community!</p>
+<p style="font-size: 140%; color: red;">Old discuss is read-only now. Please go to <a href="http://oj.leetcode.com/discuss">New LeetCode Discuss</a> for your questions and answers!</p>
+<p style="font-size: 125%">User account in old discuss will not integrate to the new one, but <a href="http://oj.leetcode.com/discuss">new discuss</a> is integrated with <a href="http://oj.leetcode.com/">new online judge</a>, which means, if you already have an account in <a href="http://oj.leetcode.com/">new online judge</a>, you can access <a href="http://oj.leetcode.com/discuss">new discuss</a> immediately!</p>
+<p>If you want to ask for question relevant to the posts in old discuss, please copy content as part of your question, only old discuss link is <span style="color: red;">NOT ALLOWED!</span></p>
+<p style="font-size: 125%">Please <a href="http://oj.leetcode.com/discuss/faq">read the FAQ</a> in <a href="http://oj.leetcode.com/discuss">new LeetCode Discuss</a> to help yourself making the best use of Discuss!</p>
+</div>
+</div>
+<div class="boxC">
+<p>
+Tags:
+</p>
+<p class="tags">
+<a href="http://discuss.leetcode.com/tags/oj/" class="tag-link-oj" title="see questions tagged&#39;oj&#39;using tags" rel="tag">oj</a> <span class="tag-number">×137</span><br>
+</p>
+<p>
+Asked: <strong title="April 2, 2012, 12:37 p.m.">02 Apr '12, 12:37</strong>
+</p>
+<p>
+Seen: <strong>2,991 times</strong>
+</p>
+<p>
+Last updated: <strong title="Oct. 25, 2013, 6:41 a.m.">25 Oct, 06:41</strong>
+</p>
+</div>
+<div class="boxC">
+<h3 class="subtitle">Related questions</h3>
+<div class="questions-related">
+<p>
+<a href="http://discuss.leetcode.com/questions/7/populating-next-right-pointers-in-each-node">[closed] Populating Next Right Pointers in Each Node</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/142/median-of-two-sorted-arrays">Median of Two Sorted Arrays</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/197/3sum-closest">3Sum Closest</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/213/search-for-a-range">Search for a Range</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/229/n-queens">[closed] N-Queens</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/246/climbing-stairs">[closed] Climbing Stairs</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/262/scramble-string">[closed] Scramble String</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/280/flatten-binary-tree-to-linked-list">[closed] Flatten Binary Tree to Linked List</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/1266/palindrome-partitioning-ii">[closed] Palindrome Partitioning II</a>
+</p>
+<p>
+<a href="http://discuss.leetcode.com/questions/15/3sum">3Sum</a>
+</p>
+</div>
+</div>
+</div>
+<div id="tail" style="clear:both;">
+</div>
+</div>
+<div class="spacer3"></div>
+</div>
+<div id="ground">
+<div>
+<div class="footerLinks">
+<a href="http://discuss.leetcode.com/about/">about</a> <span class="link-separator"> |</span> <a href="http://discuss.leetcode.com/faq/">faq</a> <span class="link-separator"> |</span> <a href="http://discuss.leetcode.com/privacy/">privacy</a> <span class="link-separator"> |</span> <a href="http://discuss.leetcode.com/contact/?next=%2Fquestions%2F241%2Fvalid-number">contact</a>
+</div>
+<p>
+</p>
+</div>
+<div id="licenseLogo">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAABGdBTUEAALGOfPtRkwAAAb9QTFRF////////////AAAADQ4NDg4OEBAQGxsbICAgIx8gJCQkKCgoKCkoKSkpKicnLS0tMDAwMS0uMjMxNTY1Pj8+Pzc5QEBAQ0RDUFBQUFFQXV5dYGBgY19hbmxscHBwcHJvdnN0eXx5fH98fX98gICAgoWChIGChIWEhIaEiYyJjoeLj4+PkY+PkZORkZSRk5iTlpmWmJaXnp2dnqCdn5aan5+fn6Oeo6Ghq7GqrKurrLKrrbOsrrOtrrStr6+vr7Kvr7Sur7WusLOvsLWvsLavsbawsbewsrexsrixs7iytLmztLqztbW1tbq0tru1t7y2uL23ub64ub65urm5ur+5ur+6u8C6u8C7vMC8vMG7vMG8vcK8vcK9vsK9vsO+v7+/v8O+v8S+wMS/wMW/wMXAwcXAwsfCw8fCw8jDxMfDxMjDxMnExcnExcnFxsrFxsrGx8vHyMfHyMzHyMzIycjIyc3Iyc3Jys3Jy8rLy87Ky8/Ky8/LzM/LzNDLzNDMzdDMzdHMzdHNztHNztLOz8/Pz9PP0NPP0NTQ0dTQ0dTR0tXR0tXS09bS1tXV39/f4N/g4+Pj6Ofn7+/v8fHx////vrZjCgAAAAN0Uk5TAAoO5yEBUwAAA3pJREFUSMe1lotfEkEQx61B5AqLyk6UwlTyUaGlmW/TMk3Nt5lkio8IRbv0Cu0QKFHPU5EM9w9u9g7wPMBPYs2H+yyfWfbL7G9nZi/rMvwXy8oC6B8cdky7Fjh+TfAHg37fOs95XDOOkcH+nq6Xrc3NTQ3nNyQjd2xyzs15fSFROgiHD/bE0IaXc89PjlFyR2tzU0bkLEDuR8+KEJLK83V0E7r8CmnLxy+5PiD5dWdHSzzk4lw6nVusZaT0I3gYuXxAtOecCJRTJQa9y67JkcHe7s5YyNVGANZqZQGM1WpCGj+CHXMePigVIE9vsTmdNosevxYs/vQuzTuGB1AMOeRn2WCOELSIGbJVhHR+BE+7VwKUq7dFiWJ1iDYuBnn3zPhQvxxyQ4MRLDgDQKfBeAKQ/Uerq0caP4JdnCAi1xQhCYuaMGbRx7kmMeRX7ahFMZgP42BihoSesr+eQRs95afgha8hO3KjhJwmV215PbPjg33dHS1NTbmg+t8I5MbXU/8qc/vOPYZ5pPZTMOeTckC/TU5ZVA850gbnej+MiYFaAEu9FpAFISwk1rPk+CnzgJAa5obaT8H8ZjmAjWisDqAixLunxlALCrYSWQlFC+sJ2EqOrzBXUWaG+a3yU/DaTj7oUQinmWVtyvAQF+shX1ynWvR2tZ8JJm+uO2XwLw1YkHR0g045g9k2ebDQbev2fMvz74b6ujrOlIKM1n8jpJFhtFL49wEwRBMYIk5DnQnTo81QJ2tx4OdcDkw4BMcOTwlYc3g1DFNWdo15oj28QBjASdfYlKUxuXEH4eCXOBjTiqRJN0LKaLrdPdam21+B1QViTSqQ742Nhxr/KSmi2wYbSkEHrRSZlHTs8GKnljg8K+gkIXF4SMBmY7JYTdomlMYvp1sB6Eki3dpYeSAGTLc1z+xbJd0yaZv8pl3WIlWBfJoaGehRutD5G/1nuaQjZ5d0JmBsQrWpmpA95F2YwcKTm1AmYCgRxEIkq9pQRG6bwv0LXdP4FPl31Y0+asNGf0sKlMBFwVAa3C3UXE3Sj8eaXyr1AcqTPEFSgaHUL9aqL1O7GNBygcQ+JNkfn0wGQxFe//b49V8lhYRkHeJtM8WE0kJSguHmc9/mjrQfDu9L+MLyIi9ZtDRCKFNpI0bLq5wQ/IGAX5iozEt1GukijmufFvyv3wov/SfuH2haM4xZTNJZAAAAAElFTkSuQmCC" title="Creative Commons: Attribution - Share Alike" alt="cc-by-sa">
+</a>
+</div>
+</div>
+<div id="custom_footer">
+<div style="background-color: #BDCCED; text-align: center; width: 990px; padding-bottom: 1px;">
+<small>© 2012 LeetCode. User contributions under <a href="http://creativecommons.org/licenses/by-sa/3.0/">creative commons license</a> with attribution required.</small>
+</div>
+</div>
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-6849839-5']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+</div>
+<!-- Put all elements with fixed position here, IE6 fixed position fix: http://ryanfait.com/position-fixed-ie6/ -->
+<div class="notify" style="display:none">
+<a id="close-notify" onclick="notify.close(true)">×</a>
+</div>
+<link href="./[closed] Valid Number - LeetCode_files/A.console.css.pagespeed.cf.M8O05W1WlQ.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">//<![CDATA[
+function AssertException(message){this.message=message;}
+AssertException.prototype.toString=function(){return'AssertException: '+this.message;}
+function assert(exp,message){if(!exp){throw new AssertException(message);}}
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+;(function(d){var k=d.scrollTo=function(a,i,e){d(window).scrollTo(a,i,e)};k.defaults={axis:'xy',duration:parseFloat(d.fn.jquery)>=1.3?0:1};k.window=function(a){return d(window)._scrollable()};d.fn._scrollable=function(){return this.map(function(){var a=this,i=!a.nodeName||d.inArray(a.nodeName.toLowerCase(),['iframe','#document','html','body'])!=-1;if(!i)return a;var e=(a.contentWindow||a).document||a.ownerDocument||a;return d.browser.safari||e.compatMode=='BackCompat'?e.body:e.documentElement})};d.fn.scrollTo=function(n,j,b){if(typeof j=='object'){b=j;j=0}if(typeof b=='function')b={onAfter:b};if(n=='max')n=9e9;b=d.extend({},k.defaults,b);j=j||b.speed||b.duration;b.queue=b.queue&&b.axis.length>1;if(b.queue)j/=2;b.offset=p(b.offset);b.over=p(b.over);return this._scrollable().each(function(){var q=this,r=d(q),f=n,s,g={},u=r.is('html,body');switch(typeof f){case'number':case'string':if(/^([+-]=)?\d+(\.\d+)?(px|%)?$/.test(f)){f=p(f);break}f=d(f,this);case'object':if(f.is||f.style)s=(f=d(f)).offset()}d.each(b.axis.split(''),function(a,i){var e=i=='x'?'Left':'Top',h=e.toLowerCase(),c='scroll'+e,l=q[c],m=k.max(q,i);if(s){g[c]=s[h]+(u?0:l-r.offset()[h]);if(b.margin){g[c]-=parseInt(f.css('margin'+e))||0;g[c]-=parseInt(f.css('border'+e+'Width'))||0}g[c]+=b.offset[h]||0;if(b.over[h])g[c]+=f[i=='x'?'width':'height']()*b.over[h]}else{var o=f[h];g[c]=o.slice&&o.slice(-1)=='%'?parseFloat(o)/100*m:o}if(/^\d+$/.test(g[c]))g[c]=g[c]<=0?0:Math.min(g[c],m);if(!a&&b.queue){if(l!=g[c])t(b.onAfterFirst);delete g[c]}});t(b.onAfter);function t(a){r.animate(g,j,b.easing,a&&function(){a.call(this,n,b)})}}).end()};k.max=function(a,i){var e=i=='x'?'Width':'Height',h='scroll'+e;if(!d(a).is('html,body'))return a[h]-d(a)[e.toLowerCase()]();var c='client'+e,l=a.ownerDocument.documentElement,m=a.ownerDocument.body;return Math.max(l[h],m[h])-Math.min(l[c],m[c])};function p(a){return typeof a=='object'?a:{top:a,left:a}}})(jQuery);
+//]]></script>
+<script type="text/javascript" src="./[closed] Valid Number - LeetCode_files/init.console.js.pagespeed.jm.M9ASLVrXVw.js"></script>
+<script type="text/javascript">//<![CDATA[
+function isOjQuestion(){var isOj=false;$('#question-tags').children('a').each(function(){var tag=$(this);if(tag.text()=='oj'){isOj=true;return false;}});return isOj;}
+function getQuestionId(){var href=$('div#wrapper > div > div > div > h1 > a').attr('href');var match=/questions\/(\d+)/.exec(href);var id=null;if(match!=null){id=match[1];}
+return id;}
+function getQuestionTitle(){var title=$('div#wrapper > div > div > div > h1 > a').text();return title;}
+function replaceQuotesWithEntity(text){return text.replace(/"/g,"&quot;").replace(/'/g,"&#039;");}
+if(isOjQuestion()){var id=getQuestionId();var title=getQuestionTitle();title=replaceQuotesWithEntity(title);if(id!=null){$('.question-body').append('<a href="#" onclick=\'clearSavedJudgeCode();'+'setJudge('+id+', "'+title+'");'+'openConsole(); return false;\'>'+'&raquo; Solve this problem</a>');}}
+//]]></script>
+
+
+<!-- end template base_content.html -->
+<iframe id="rdbIndicator" width="100%" height="270" border="0" src="./[closed] Valid Number - LeetCode_files/indicator.html" style="display: none; border: 0; position: fixed; left: 0; top: 0; z-index: 2147483647"></iframe></body></html>
