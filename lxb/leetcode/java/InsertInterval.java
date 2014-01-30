@@ -10,7 +10,7 @@
 //Focus: 1. ArrayList<T> arraylist; arraylist.size(), arraylist.get(i), arraylist.add()
 	 2. merge interval.
 
-//Method 1:
+// Method 1:
 public class Solution {
     public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {
         // skip non overlap ones
