@@ -9,6 +9,7 @@ Note:
 The solution is guaranteed to be unique.
 */
 Focus 1: Array.length , index start from 1.
+      2. O(n)
 
 public class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
